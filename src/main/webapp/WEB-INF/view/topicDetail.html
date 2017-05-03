@@ -1,0 +1,186 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>话题详情</title>
+
+	<link rel="stylesheet" type="text/css" href="${base}/css/base.css">
+	<link rel="stylesheet" type="text/css" href="${base}/css/nav.css">
+	<link rel="stylesheet" type="text/css" href="${base}/css/mask.css">
+	<link rel="stylesheet" type="text/css" href="${base}/css/topicDetail.css?acx">
+</head>
+<body>
+	<#include "nav.html"/>
+	<div class="main">
+		<div class="content">
+			<div class="head">
+				<img src="${topic.topicImage}">
+				<div>
+					<h3 id="topicId" data-id="${topic.topicId}">${topic.topicName}</h3>
+					<ul>
+						<#if allQuestion??>
+							<li><a href="${base}/topicDetail/${topic.topicId}">精华</a></li>
+							<li class="active"><a href="${base}/topicDetail/${topic.topicId}?allQuestion=true">全部问题</a></li>
+						<#else>
+							<li class="active"><a href="${base}/topicDetail/${topic.topicId}">精华</a></li>
+							<li><a href="${base}/topicDetail/${topic.topicId}?allQuestion=true">全部问题</a></li>
+						</#if>
+						
+					</ul>
+				</div>
+			</div>
+			<div class="body">
+				<ul>
+					<#if allQuestion??>
+					<li>
+						<#list pageBean.list as question>
+						<div class="item">
+							<h4><a href="${base}/question/${question.questionId}">${question.questionTitle}</a></h4>
+							<a href="${base}/question/${question.questionId}">查看回答</a>
+							<a href="${base}/question/${question.questionId}"><span> • </span>${question.followedCount} 个关注</a>
+						</div>
+						</#list>
+						<div class="pagination">
+							<div class="buttons">
+								<a class="pre-page" href="${base}/topicDetail/${topic.topicId}?allQuestion=true&page=1">首页</a>
+								<!-- 上一页处理 -->
+								<#if pageBean.curPage!=1>
+									<a class="pre-page" href="${base}/topicDetail/${topic.topicId}?allQuestion=true&page=${pageBean.curPage-1}">上一页</a>
+								<#else>
+									<span>上一页</span>
+								</#if>
+								
+								<!-- 中间页码 -->
+								<#if pageBean.allPage<=6>
+									<#list 1..pageBean.allPage as i>
+										<a href="${base}/topicDetail/${topic.topicId}?allQuestion=true&page=${i}">${i}</a>
+									</#list>
+								<#elseif pageBean.curPage<=3>
+									<#list 1..6 as i>
+										<a href="${base}/topicDetail/${topic.topicId}?allQuestion=true&page=${i}">${i}</a>
+									</#list>
+								<#elseif pageBean.allPage - pageBean.curPage<=5>
+									<#list pageBean.allPage-5..pageBean.allPage as i>
+										<a href="${base}/topicDetail/${topic.topicId}?allQuestion=true&page=${i}">${i}</a>
+									</#list>
+								<#else>
+									<#list pageBean.curPage-2..pageBean.curPage+3 as i>
+										<a href="${base}/topicDetail/${topic.topicId}?allQuestion=true&page=${i}">${i}</a>
+									</#list>
+								</#if>
+								
+								<!-- 下一页处理 -->
+								<#if pageBean.curPage!=pageBean.allPage>
+									<a class="next-page" href="${base}/topicDetail/${topic.topicId}?allQuestion=true&page=${pageBean.curPage+1}">下一页</a>
+								<#else>
+									<span>下一页</span>
+								</#if>
+								<a class="next-page" href="${base}/topicDetail/${topic.topicId}?allQuestion=true&page=${pageBean.allPage}">尾页</a>
+							</div>
+						</div>
+					</li>
+					<#else>
+					<li>
+						<#list pageBean.list as answer>
+						<div class="feed-item">
+							<div class="feed-body">
+								<h2 class="feed-title">
+									<a href="${base}/question/${answer.question.questionId}#answer-{answer.answerId}">${answer.question.questionTitle}</a>
+								</h2>
+								<div class="feed-user-info">
+									<a href="${base}/profile/${answer.user.userId}">${answer.user.username}</a>
+									<span class="comma">，</span>
+									<span>${answer.user.simpleDesc}</span>
+								</div>
+								<div class="feed-content">
+									${answer.answerContent}
+								</div>
+								<div class="feed-meta">
+									<a href="${base}/question/${answer.question.questionId}#answer-{answer.answerId}"><span class="glyphicon glyphicon-plus"></span>&nbsp;关注问题</a>
+									<a href="${base}/question/${answer.question.questionId}#answer-{answer.answerId}"><span class="glyphicon glyphicon-leaf"></span>&nbsp;查看评论</a>
+									<a href="${base}/question/${answer.question.questionId}#answer-{answer.answerId}"><span class="glyphicon glyphicon-bookmark"></span>&nbsp;收藏</a>
+									<a href="${base}/question/${answer.question.questionId}#answer-{answer.answerId}">作者保留权利</a>
+								</div>
+							</div>
+							<div class="votebar">
+								<button class="vote-up" clicked="${answer.likeState}" answer-id="${answer.answerId}">${answer.likedCount}
+									<i></i>
+								</button>
+							</div>
+						</div>
+						</#list>
+						<div class="pagination">
+							<div class="buttons">
+								<a class="pre-page" href="${base}/topicDetail/${topic.topicId}?page=1">首页</a>
+								<!-- 上一页处理 -->
+								<#if pageBean.curPage!=1>
+									<a class="pre-page" href="${base}/topicDetail/${topic.topicId}?page=${pageBean.curPage-1}">上一页</a>
+								<#else>
+									<span>上一页</span>
+								</#if>
+								
+								<!-- 中间页码 -->
+								<#if pageBean.allPage<=6>
+									<#list 1..pageBean.allPage as i>
+										<a href="${base}/topicDetail/${topic.topicId}?page=${i}">${i}</a>
+									</#list>
+								<#elseif pageBean.curPage<=3>
+									<#list 1..6 as i>
+										<a href="${base}/topicDetail/${topic.topicId}?page=${i}">${i}</a>
+									</#list>
+								<#elseif pageBean.allPage - pageBean.curPage<=5>
+									<#list pageBean.allPage-5..pageBean.allPage as i>
+										<a href="${base}/topicDetail/${topic.topicId}?page=${i}">${i}</a>
+									</#list>
+								<#else>
+									<#list pageBean.curPage-2..pageBean.curPage+3 as i>
+										<a href="${base}/topicDetail/${topic.topicId}?page=${i}">${i}</a>
+									</#list>
+								</#if>
+								
+								<!-- 下一页处理 -->
+								<#if pageBean.curPage!=pageBean.allPage>
+									<a class="next-page" href="${base}/topicDetail/${topic.topicId}?page=${pageBean.curPage+1}">下一页</a>
+								<#else>
+									<span>下一页</span>
+								</#if>
+								<a class="next-page" href="${base}/topicDetail/${topic.topicId}?page=${pageBean.allPage}">尾页</a>
+							</div>
+						</div>
+					</li>
+					</#if>
+				</ul>
+			</div>
+		</div>
+		<div class="sidebar">
+			
+			<div class="topic-info">
+				<div class="topic-meta">
+					<button id="followTopicButton" class="follow" style="display:none;">关注话题</button>
+					<button id="unfollowTopicButton" class="unfollow" style="display:none;">取消关注</button>
+					<a href="#">${topic.followedCount}</a><span> 人关注了该话题</span>
+				</div>
+				<div class="topic-desc">
+					<h4>描述</h4>
+					<div>${topic.topicDesc}</div>
+				</div>
+			</div>
+			<div class="footer">
+				<a href="#">建议反馈</a>
+				<span> • </span>
+				<a href="#">联系我们</a>
+				<div></div>
+				<span>@ 2017 蛤乎</span>
+			</div>
+		</div>
+	</div>
+
+	<#include "mask.html"/>
+
+
+<script type="text/javascript" src="${base}/js/nav.js"></script>
+<script type="text/javascript" src="${base}/js/wangEditor.js"></script>
+<script type="text/javascript" src="${base}/js/mask.js"></script>
+<script type="text/javascript" src="${base}/js/topicDetail.js?a"></script>
+
+</body>
+</html>

@@ -1,0 +1,300 @@
+﻿
+/*主体部分*/
+.main{
+	width: 960px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+/*内容部分*/
+.content{
+	float: left;
+	width: 632px;
+}
+
+
+/*大话题列表*/
+.content .parent-topic{
+	border-bottom: 1px solid #eee;
+}
+
+.content .parent-topic .header{
+	height: 30px;
+	padding-bottom: 8px;
+	border-bottom: 1px solid #ccc;
+	line-height: 23px;
+}
+
+.content .parent-topic .header h2{
+	font-size: 14px;
+	font-weight: 700;
+	color: #666;
+	float: left;
+}
+
+.content .parent-topic .header h2 i{
+	display: inline-block;
+	position: relative;
+	top: 4px;
+	left: 0;
+	background-image: url(../image/sprites-1.9.2.4c54885a.png);
+	background-repeat: no-repeat;
+	background-position: -50px -88px;
+	width: 17px;
+    height: 17px
+}
+
+.content .parent-topic .header a{
+	float: right;
+	position: relative;
+    top: 2px;
+	font-size: 13px;
+	color: #999;
+}
+
+.content .parent-topic .header a:hover{
+	text-decoration: underline;
+	color: #698ebf;
+}
+
+.content .parent-topic ul.topic-list{
+	padding: 30px 0 20px;
+	overflow: hidden;
+}
+
+.content .parent-topic ul.topic-list li{
+	float: left;
+    margin: 0 10px 10px 0;
+}
+
+.content .parent-topic ul.topic-list li a{
+	display: block;
+	height: 24px;
+	padding: 0 10px;
+	border: 1px solid #daecf5;
+	border-radius: 30px;
+	font-size: 13px;
+	line-height: 24px;
+	color: #259;
+}
+
+.content .parent-topic ul.topic-list li a.active{
+	display: block;
+	height: 24px;
+	padding: 0 10px;
+	border: 1px solid #daecf5;
+	border-radius: 30px;
+	font-size: 13px;
+	line-height: 24px;
+    background-color: #259;
+    border-color: #259;
+    color: #fff;
+}
+
+.content .parent-topic ul.topic-list li a:hover{
+    background-color: #259;
+    border-color: #259;
+    color: #fff;
+}
+
+.content .son-topic{
+
+}
+
+.content .son-topic ul{
+	padding-top: 10px;
+	overflow: hidden;
+}
+
+.content .son-topic ul li{
+	position: relative;
+	float: left;
+	width: 312px;
+	padding-bottom: 20px;
+	padding-top: 15px;
+	border-bottom: 1px solid #eee;
+	overflow: hidden;
+}
+
+.content .son-topic ul li .topic-image{
+	float: left;
+	width: 50px;
+    padding-top: 1px;
+}
+
+.content .son-topic ul li img{
+	width: 50px;
+	height: 50px;
+	border-radius: 3px;
+}
+
+.content .son-topic ul li .topic-info{
+	float: right;
+	width: 218px;
+	padding-right: 20px;
+}
+
+.content .son-topic ul li .topic-info a.topic-name{
+	font-size: 13px;
+	font-weight: bold;
+	color: #259;
+}
+
+.content .son-topic ul li .topic-info .topic-desc{
+	font-size: 13px;
+	line-height: 22px;
+	color: #000;
+}
+
+
+
+
+
+/*关注按钮*/
+.son-topic ul li a.follow-button{
+	position: absolute;
+	right: 27px;
+    top: 6px;
+	font-size: 13px;
+	color: #698ebf;
+	line-height: 40px;
+	cursor: pointer;
+}
+
+.son-topic ul li a.follow-button:hover{
+	text-decoration: underline;
+}
+
+.son-topic ul li a.follow-button i{
+	display: inline-block;
+	background-image: url(../image/sprites-1.9.2.4c54885a.png);
+    background-repeat: no-repeat;
+    background-position: -97px -38px;
+    width: 8px;
+    height: 9px;
+    position: relative;
+    top: 1px;
+    right: 3px;
+}
+
+
+
+
+
+
+
+/*更多按钮*/
+.content .more-answer{
+	padding-bottom: 30px;
+	border-bottom: 1px solid #eee;
+}
+
+.content .more-answer a{
+	display: block;
+    font-size: 13px;
+    margin: 20px 0;
+    padding: 5px 1px;
+	color: #666;
+    text-shadow: 0 1px 0 #fff;
+	background: linear-gradient(to bottom,#f8f8f9,#e6e6e8);
+    border: 1px solid #bbb;
+    box-shadow: 0 1px 0 #fff inset, 0 1px 0 rgba(0,0,0,.1);
+	line-height: 1.7;
+    text-decoration: none!important;
+	text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+
+
+/*右侧工具栏部分*/
+.sidebar{
+	float: left;
+	width: 270px;
+	height: 600px;
+	margin-left: 58px;
+}
+
+.sidebar-top h3{
+	padding-top: 5px;
+	margin-bottom: 10px;
+	font-size: 14px;
+	font-weight: bold;
+	color: #666;
+}
+
+.sidebar-top ul li{
+	padding: 12px 0 10px;
+	border-bottom: 1px solid #eee;
+}
+
+.sidebar-top ul li .topic-info{
+	overflow: hidden;
+}
+
+.sidebar-top ul li .topic-info img{
+	float: left;
+	width: 40px;
+	height: 40px;
+	margin-right: 10px;
+	border-radius: 3px;
+}
+
+.sidebar-top ul li .topic-info .topic-name{
+	float: left;
+}
+
+.sidebar-top ul li .topic-info .topic-name a{
+	font-size: 13px;
+	color: #259;
+}
+
+.sidebar-top ul li .topic-info .topic-name span{
+	font-size: 13px;
+	color: #999;
+}
+
+.sidebar-top ul li a.question-example{
+	display: block;
+	margin-top: 8px;
+	margin-bottom: 10px;
+	font-size: 13px;
+	color: #259;
+}
+
+/*footer部分*/
+
+.footer{
+	padding-top: 10px;
+	padding-left: 3px;
+}
+
+.footer, .footer a{
+	/*display: inline-block;*/
+	line-height: 24px;
+	color: #666;
+	font-size: 13px;
+}
+
+.footer a:hover{
+	text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fc.mapper.TopicMapper">
+
+    <insert id="insertTopic">
+        <selectKey resultType="int" order="AFTER" keyProperty="topicId">
+            select last_insert_id() as topicId
+        </selectKey>
+        insert into topic(topic_name,parent_topic_id,topic_desc) values(#{topicName},#{parentTopicId},'暂无描述')
+    </insert>
+    
+    <select id="selectTopicIdByTopicName" resultType="int">
+    	select topic_id from topic where topic_name = #{topicName} limit 0,1
+    </select>
+    
+    <select id="listRootTopic" resultType="com.fc.model.Topic">
+    	select topic_id,topic_name from topic where parent_topic_id = 0
+    </select>
+    
+    <select id="listHotTopic" resultType="com.fc.model.Topic">
+    	select topic_id,topic_name,topic_image,followed_count from topic
+    	order by followed_count desc
+    	limit 0,5
+    </select>
+
+    <select id="listTopicByParentId" resultType="com.fc.model.Topic">
+    	select topic_id,topic_name,topic_desc,topic_image,parent_topic_id from topic where parent_topic_id = #{parentTopicId}
+    </select>
+	
+	<select id="selectTopicByTopicId" resultType="com.fc.model.Topic">
+		select topic_id,topic_name,topic_desc,topic_image,parent_topic_id from topic where topic_id = #{topicId}
+	</select>    
+    
+    <select id="selectQuestionIdByTopicId" resultType="int">
+    	select question_id from question_topic where topic_id = #{topicId}
+    </select>
+    
+    <select id="listTopicByTopicId" resultType="com.fc.model.Topic">
+    	select topic_id,topic_name,topic_image from topic
+    	<where>
+			topic_id in
+			<foreach collection="list" item="item" index="index" open="("
+				separator="," close=")">
+				#{item}
+			</foreach>
+		</where>
+    </select>
+    
+    <update id="updateFollowedCount">
+    	update topic set followed_count = followed_count + 1
+    	where topic_id = #{topicId}
+    </update>
+    
+    <select id="listTopicByTopicName" resultType="com.fc.model.Topic">
+    	select * from topic
+    	where topic_name like #{topicName}
+    </select>
+    
+    
+    
+    
+</mapper>

@@ -1,0 +1,129 @@
+﻿.nav{
+	height: 60px;
+	border-bottom: 1px solid rgba(30,35,42,.06);
+    box-shadow: 0 1px 3px 0 rgba(0,34,77,.05);
+    margin-bottom: 14px;
+}
+
+.nav .wrap{
+	width: 1000px;
+	margin: 0 auto;
+}
+
+.nav a.logo{
+	float: left;
+	width: 65px;
+	padding-right: 36px;
+	font-size: 30px;
+	line-height: 60px;
+	color: #0F88EB;
+}
+
+.nav ul.nav-top{
+	float: left;
+	padding-right: 7px;
+}
+
+.nav ul.nav-top li{
+	float: left;
+	padding-right: 30px;
+	font-size: 15px;
+	line-height: 60px;
+}
+
+
+.nav ul.nav-top li a{
+	color: #8590A6;
+}
+
+
+.nav .search-area{
+	float: left;
+/*	width: 388px;*/
+	padding: 12px 0;
+	position: relative;
+}
+
+.nav .search-area input{
+	float: left;
+	width: 314px;
+	height: 34px;
+	padding-left: 10px;
+	border: 1px solid #e7eaf1;
+    border-radius: 3px;
+    background: #f7f8fa;
+}
+
+
+.nav .search-area button.ask{
+	float: left;
+	padding: 0 14px;
+	border: 1px solid #0f88eb;
+	border-radius: 3px;
+	margin-left: 16px;
+	font-size: 14px;
+	line-height: 34px;
+	background-color: #0f88eb;
+	color: white;
+	text-align: center;
+	cursor: pointer;
+}
+
+.nav .search-area button.magnifier{
+	position: absolute;
+	width: 16px;
+	height: 16px;
+	background: url(../image/sprite-nav2.png) no-repeat 0 0;
+	top: 22px;
+    right: 86px;
+    cursor: pointer;
+}
+
+.nav .nav-right{
+	float: left;
+	padding: 15px 0  15px 163px;
+}
+
+
+
+.nav .nav-right .message{
+	float: left;
+	width: 18px;
+	height: 20px;
+	background: url(../image/sprite-nav2.png) no-repeat 0 -37px;
+	margin-right: 41px;
+	position: relative;
+	top: 5px;
+	left: 50px;
+}
+
+.nav .nav-right button.private-letter{
+	float: left;
+	width: 20px;
+	height: 20px;
+	background: url(../image/sprite-nav2.png) no-repeat 0 -71px;
+	position: relative;
+	top: 5px;
+	left: 0;
+}
+
+.nav .nav-right a.profile{
+	float: left;
+	margin-left: 40px;
+}
+
+.nav .nav-right a.profile img{
+	width: 30px;
+	height: 30px;
+	border-radius: 2px;
+}
+
+
+
+
+
+
+
+
+
+

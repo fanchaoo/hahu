@@ -1,0 +1,449 @@
+﻿
+/*主体部分*/
+.main{
+	width: 960px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+/*内容部分*/
+.content{
+	float: left;
+	width: 632px;
+}
+
+
+/*自己关注的话题列表*/
+.content .following-topic{
+	border-bottom: 1px solid #eee;
+}
+
+.content .following-topic .header{
+	height: 30px;
+	padding-bottom: 8px;
+	border-bottom: 1px solid #ccc;
+	line-height: 23px;
+}
+
+.content .following-topic .header h2{
+	font-size: 14px;
+	font-weight: 700;
+	color: #666;
+	float: left;
+}
+
+.content .following-topic .header h2 i{
+	display: inline-block;
+	position: relative;
+	top: 4px;
+	left: 0;
+	background-image: url(../image/sprites-1.9.2.4c54885a.png);
+	background-repeat: no-repeat;
+	background-position: -71px -88px;
+	width: 16px;
+    height: 16px;
+}
+
+.content .following-topic .header a{
+	float: right;
+	position: relative;
+    top: 2px;
+	font-size: 13px;
+	color: #999;
+}
+
+.content .following-topic .header a:hover{
+	text-decoration: underline;
+	color: #698ebf;
+}
+
+.content .following-topic ul.topic-list{
+	padding: 30px 0 20px;
+	overflow: hidden;
+}
+
+.content .following-topic ul.topic-list li{
+	float: left;
+    margin: 0 10px 10px 0;
+}
+
+.content .following-topic ul.topic-list li a{
+	display: block;
+	height: 24px;
+	padding: 0 10px;
+	border: 1px solid #daecf5;
+	border-radius: 30px;
+	font-size: 13px;
+	line-height: 24px;
+	color: #259;
+}
+
+.content .following-topic ul.topic-list li:nth-child(1) a{
+	display: block;
+	height: 24px;
+	padding: 0 10px;
+	border: 1px solid #daecf5;
+	border-radius: 30px;
+	font-size: 13px;
+	line-height: 24px;
+    background-color: #259;
+    border-color: #259;
+    color: #fff;
+}
+
+.content .following-topic ul.topic-list li a:hover{
+    background-color: #259;
+    border-color: #259;
+    color: #fff;
+}
+
+
+/*根据话题推荐的内容*/
+
+.content .recommend{
+
+}
+
+.content .recommend .header{
+	padding-top: 20px;
+	overflow: hidden;
+}
+.content .recommend .header h3{
+	float: left;
+	overflow: hidden;
+}
+
+.content .recommend .header h3 i{
+	float: left;
+	width: 40px;
+	height: 40px;
+	border-radius: 3px;
+	margin-right: 16px;
+	background-color: #1593f7;
+	color: white;
+	font-size: 22px;
+	font-weight: bold;
+	line-height: 40px;
+	text-align: center;
+}
+
+.content .recommend .header h3 span{
+	float: left;
+	position: relative;
+	top: 13px;
+	left: -5px;
+	font-size: 14px;
+	color: #555;
+	font-weight: bold;
+}
+
+.content .recommend .header h4{
+	float: right;
+	position: relative;
+	top: 20px;
+	left: 0px;
+	font-size: 12px;
+}
+
+.content .recommend .header h4 a, .content .answer-list .header h4 span{
+	color: #555;
+}
+
+.content .recommend .header h4 a:hover{
+	color: #259;
+	text-decoration: underline;
+}
+
+
+/*feed流部分*/
+.feed-item{
+	position: relative;
+	margin-top: 14px;
+	padding: 8px 0 8px;
+	border-bottom: 1px solid rgb(238, 238, 238);
+}
+
+
+.feed-item .feed-body{
+	/*position: absolute;
+	left: 48px;
+	top: 2px;*/
+	margin-left: 48px;
+}
+
+
+.feed-title a{
+	font-weight: 700;
+    font-size: 14px;
+    color: #259;
+    line-height: 1.7;
+}
+
+.feed-user-info a,.feed-user-info .comma{
+	font-size: 13px;
+	line-height: 1.7;
+	font-weight: 700;
+	color: #000;
+}
+
+.feed-user-info span{
+	font-size: 13px;
+	line-height: 1.7;
+	color: #999;
+}
+
+
+.feed-user-info a:hover{
+	text-decoration: underline;
+}
+
+.feed-content{
+    font-size: 13px;
+    line-height: 1.7;
+    color: #222;
+}
+
+
+.feed-content a{
+	display: inline-block;
+    padding: 0 3px;
+    border-radius: 2px;
+    font-size: .9em;
+    color: #259
+}
+
+.feed-meta{
+	padding: 8px 0;
+
+}
+
+.feed-meta a{
+	font-size: 13px;
+	color: #999;
+	margin-right: 7px;
+}
+
+.feed-meta a:hover{
+	color: #259;
+	text-decoration: underline;
+}
+
+
+/*投票按钮部分*/
+.votebar{
+	position: absolute;
+	top: 8px;
+	left: 0;
+}
+
+.votebar .vote-up{
+	position: relative;
+	padding-top: 18px;
+    height: 44px;
+	display: block;
+	color: #698ebf;
+	line-height: 24px;
+    width: 38px;
+    border-radius: 3px;
+    border: 0;
+    cursor: pointer;
+    background: #EFF6FA;
+    font-weight: 500;
+    text-align: center;
+}
+
+.votebar .vote-up i{
+	position: absolute;
+	width: 0;
+	height: 0;
+	top: 3px;
+    left: 50%;
+    margin-left: -6px;
+	border: 6px solid #EFF6FA;
+	border-bottom: 6px solid #698EBF;
+}
+
+.votebar .vote-down{
+	position: relative;
+	display: block;
+    height: 24px;
+    width: 38px;
+    border: 0;
+    border-radius: 3px;
+    margin-top: 5px;
+    color: #698ebf;
+    background: #EFF6FA;
+    cursor: pointer;
+}
+
+.votebar .vote-down i{
+	position: absolute;
+	width: 0;
+	height: 0;
+	top: 10px;
+    left: 50%;
+    margin-left: -6px;
+	border: 6px solid #EFF6FA;
+	border-top: 6px solid #698EBF;
+}
+
+
+/*更多按钮*/
+.content .more-answer{
+	padding-bottom: 30px;
+	border-bottom: 1px solid #eee;
+}
+
+.content .more-answer a{
+	display: block;
+    font-size: 13px;
+    margin: 20px 0;
+    padding: 5px 1px;
+	color: #666;
+    text-shadow: 0 1px 0 #fff;
+	background: linear-gradient(to bottom,#f8f8f9,#e6e6e8);
+    border: 1px solid #bbb;
+    box-shadow: 0 1px 0 #fff inset, 0 1px 0 rgba(0,0,0,.1);
+	line-height: 1.7;
+    text-decoration: none!important;
+	text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+
+
+
+
+/*右侧工具栏部分*/
+.sidebar{
+	float: left;
+	width: 270px;
+	height: 600px;
+	margin-left: 58px;
+
+}
+
+.sidebar .topic-plaza{
+	padding: 34px 0;
+	border: 1px solid #cce1ef;
+	border-radius: 4px;
+    background: #eff6fA;
+    text-align: center;;
+	margin-bottom: 20px;
+}
+
+.sidebar .topic-plaza a:nth-child(1){
+	color: #fff;
+    text-shadow: 0 -1px 0 rgba(0,0,0,.5);
+    background: linear-gradient(to bottom,#1d7fe2,#0865c2);
+    border: 1px solid #0D6EB8;
+    box-shadow: 0 1px 0 rgba(255,255,255,.2) inset, 0 1px 0 rgba(0,0,0,.2);
+    font-size: 14px;
+    line-height: 1.7;
+    text-decoration: none!important;
+    vertical-align: middle;
+    display: inline-block;
+	text-align: center;
+    padding: 4px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+    white-space: nowrap;
+    box-sizing: border-box;
+}
+
+.sidebar .topic-plaza a:nth-child(2){
+    display: block;
+    margin-top: 25px;
+    font-size: 13px;
+    color: #5488b4;
+}
+
+.sidebar .topic-plaza a:nth-child(2):hover{
+    text-decoration: underline;
+}
+
+
+
+/*其他人关注的话题*/
+.sidebar .other-topic h3{
+	padding: 15px 0 9px;
+	font-size: 14px;
+	font-weight: bold;
+	color: #666;
+}
+
+.sidebar .other-topic ul li{
+	padding: 6px 0 10px;
+	overflow: hidden;
+}
+
+.sidebar .other-topic ul li .topic-image{
+	float: left;
+}
+
+.sidebar .other-topic ul li .topic-image img{
+	width: 40px;
+	height: 40px;
+	border-radius: 3px;
+}
+
+.sidebar .other-topic ul li a.topic-name{
+	float: left;
+	margin-left: 16px;
+	font-size: 14px;
+	font-weight: bold;
+	color: #259;
+	line-height: 40px;
+}
+
+.sidebar .other-topic ul li a.follow-button{
+	float: right;
+	font-size: 13px;
+	color: #698ebf;
+	line-height: 40px;
+}
+
+.sidebar .other-topic ul li a.follow-button:hover{
+	text-decoration: underline;
+}
+
+.sidebar .other-topic ul li a.follow-button i{
+	display: inline-block;
+	background-image: url(../image/sprites-1.9.2.4c54885a.png);
+    background-repeat: no-repeat;
+    background-position: -97px -38px;
+    width: 8px;
+    height: 9px;
+    position: relative;
+    top: 1px;
+    right: 3px;
+}
+
+
+
+
+/*footer部分*/
+
+.footer{
+	width: 960px;
+	padding: 10px;
+	border-top: 1px solid #ccc;
+	margin: 0 auto;
+}
+
+.footer span,.footer a{
+	line-height: 30px;
+	color: #666;
+	font-size: 13px;
+}
+
+.footer a:hover{
+	text-decoration: underline;
+}
+
+.footer .footer-right{
+	float: right;
+}

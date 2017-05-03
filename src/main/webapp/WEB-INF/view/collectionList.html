@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>收藏夹列表</title>
+
+	<link rel="stylesheet" type="text/css" href="${base}/css/wangEditor.css">
+	<link rel="stylesheet" type="text/css" href="${base}/css/base.css">
+	<link rel="stylesheet" type="text/css" href="${base}/css/nav.css">
+	<link rel="stylesheet" type="text/css" href="${base}/css/mask.css">
+	<link rel="stylesheet" type="text/css" href="${base}/css/collectionList.css">
+</head>
+<body>
+	<#include "nav.html"/>
+	<div class="main">
+		<div class="content">
+			<ul class="head">
+				<li class="active">我创建的收藏夹</li>
+			</ul>
+			<div class="divide"></div>
+			
+			<ul class="body" id="collectionList">
+			<script id="collectionListTemplate" type="text/html">
+			{{each collectionList}}
+				<li class="show">
+					<div class="item">
+						<h4><a href="${base}/collection/{{$value.collectionId}}">{{$value.collectionName}}</a></h4>
+						<a href="#">{{$value.answerCount}} 条内容</a>
+						<a href="#"><span> • </span>{{$value.followedCount}} 人关注</a>
+					</div>
+				</li>
+			{{/each}}
+			</script>
+			</ul>
+		</div>
+		<div class="sidebar">
+			<div class="sidebar-top">
+				<ul>
+					<li><a href="${base}/collections"><i class="sprite-collection"></i>我的收藏</a></li>
+					<li><a class="profile-question-link" href=""><i class="sprite-invite"></i>我的提问</a></li>
+					<li><a class="profile-link" href=""><i class="sprite-invite"></i>我回答的问题</a></li>
+					<li><a class="profile-follow-question-link" href=""><i class="sprite-question"></i>我关注的问题</a></li>
+				</ul>
+			</div>
+			
+			<div class="sidebar-item">
+				<a href="#" id="toAddCollection">+ 创建收藏夹</a>
+			</div>
+
+			<div class="footer">
+				<a href="#">建议反馈</a>
+				<span> • </span>
+				<a href="#">联系我们</a>
+				<div></div>
+				<span>@ 2017 蛤乎</span>
+			</div>
+		</div>
+	</div>
+	<#include "mask.html"/>
+	<#include "maskAddCollection.html"/>
+
+<script type="text/javascript" src="${base}/js/wangEditor.js"></script>
+<script type="text/javascript" src="${base}/js/template-web.js"></script>
+<script type="text/javascript" src="${base}/js/nav.js"></script>
+<script type="text/javascript" src="${base}/js/mask.js"></script>
+<script type="text/javascript" src="${base}/js/maskAddCollection.js"></script>
+<script type="text/javascript" src="${base}/js/collectionList.js"></script>
+
+</body>
+</html>
+

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fc.mapper.MessageMapper">
+
+
+	<insert id="insertTypeFollowed">
+		insert into message(type,second_type,message_date,message_time,from_user_id,from_user_name,user_id)
+		values(#{type},#{secondType},#{messageDate},#{messageTime},#{fromUserId},#{fromUserName},#{userId})
+	</insert>
+	
+	<insert id="insertTypeLiked">
+		insert into message(type,second_type,message_date,message_time,from_user_id,from_user_name,question_id,question_title,answer_id,user_id)
+		values(#{type},#{secondType},#{messageDate},#{messageTime},#{fromUserId},#{fromUserName},#{questionId},#{questionTitle},#{answerId},#{userId})
+	</insert>
+	
+	<insert id="insertTypeComment">
+		insert into message(type,second_type,message_date,message_time,from_user_id,from_user_name,question_id,question_title,answer_id,comment_id,user_id)
+		values(#{type},#{secondType},#{messageDate},#{messageTime},#{fromUserId},#{fromUserName},#{questionId},#{questionTitle},#{answerId},#{commentId},#{userId})
+	</insert>
+	
+	<insert id="insertTypeAnswer">
+		insert into message(type,second_type,message_date,message_time,from_user_id,from_user_name,question_id,question_title,answer_id,user_id)
+		values(#{type},#{secondType},#{messageDate},#{messageTime},#{fromUserId},#{fromUserName},#{questionId},#{questionTitle},#{answerId},#{userId})
+	</insert>
+	
+	<select id="listMessageByUserId" resultType="com.fc.model.Message">
+		select * from message
+		where user_id = #{userId}
+	</select>
+   
+</mapper>
+
+
+
+

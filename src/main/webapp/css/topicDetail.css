@@ -1,0 +1,367 @@
+﻿
+/*主体部分*/
+.main{
+	width: 960px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+/*内容部分*/
+.content{
+	float: left;
+	width: 632px;
+}
+
+.content .head{
+	padding: 10px 0;
+	overflow: hidden;
+}
+
+.content .head img{
+	width: 50px;
+	height: 50px;
+	float: left;
+	border-radius: 3px;
+}
+
+.content .head div{
+	float: left;
+	margin-left: 15px;
+}
+
+.content .head h3{
+	font-size: 18px;
+	font-weight: bold;
+	padding: 0 0 5px 0;
+	position: relative;
+	top: -3px;
+}
+
+.content .head ul{
+	overflow: hidden;
+}
+
+.content .head ul li{
+	float: left;
+	padding-right: 15px;
+	font-size: 14px;
+	color: #259;
+	line-height: 1.6;
+	cursor: pointer;
+}
+
+.content .head ul li:first-child{
+	border-right: 1px solid #ddd;
+}
+
+.content .head ul li:nth-child(2){
+	padding-left: 15px;
+}
+
+.content .head ul li.active a{
+	color: #333;
+	font-weight: bold;
+}
+
+.content .head ul li a{
+	color: #259;
+}
+
+/*feed流部分*/
+.feed-item{
+    position: relative;
+    margin-top: 14px;
+    padding: 8px 0 8px;
+    border-bottom: 1px solid rgb(238, 238, 238);
+}
+
+
+.feed-item .feed-body{
+    /*position: absolute;
+    left: 48px;
+    top: 2px;*/
+    margin-left: 48px;
+}
+
+
+.feed-title a{
+    font-weight: 700;
+    font-size: 14px;
+    color: #259;
+    line-height: 1.7;
+}
+
+.feed-user-info a,.feed-user-info .comma{
+    font-size: 13px;
+    line-height: 1.7;
+    font-weight: 700;
+    color: #000;
+}
+
+.feed-user-info span{
+    font-size: 13px;
+    line-height: 1.7;
+    color: #999;
+}
+
+
+.feed-user-info a:hover{
+    text-decoration: underline;
+}
+
+.feed-content{
+    font-size: 13px;
+    line-height: 1.7;
+    color: #222;
+}
+
+
+.feed-content a{
+    display: inline-block;
+    padding: 0 3px;
+    border-radius: 2px;
+    font-size: .9em;
+    color: #259
+}
+
+.feed-meta{
+    padding: 8px 0;
+
+}
+
+.feed-meta a{
+    font-size: 13px;
+    color: #999;
+    margin-right: 7px;
+}
+
+.feed-meta a:hover{
+    color: #259;
+    text-decoration: underline;
+}
+
+
+/*投票按钮部分*/
+.votebar{
+    position: absolute;
+    top: 8px;
+    left: 0;
+}
+
+.votebar .vote-up{
+    position: relative;
+    padding-top: 18px;
+    height: 44px;
+    display: block;
+    color: #698ebf;
+    line-height: 24px;
+    width: 38px;
+    border-radius: 3px;
+    border: 0;
+    cursor: pointer;
+    background: #EFF6FA;
+    font-weight: 500;
+    text-align: center;
+}
+
+.votebar .vote-up i{
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 3px;
+    left: 50%;
+    margin-left: -6px;
+    border: 6px solid #EFF6FA;
+    border-bottom: 6px solid #698EBF;
+}
+
+.votebar .vote-down{
+    position: relative;
+    display: block;
+    height: 24px;
+    width: 38px;
+    border: 0;
+    border-radius: 3px;
+    margin-top: 5px;
+    color: #698ebf;
+    background: #EFF6FA;
+    cursor: pointer;
+}
+
+.votebar .vote-down i{
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 10px;
+    left: 50%;
+    margin-left: -6px;
+    border: 6px solid #EFF6FA;
+    border-top: 6px solid #698EBF;
+}
+
+
+/*全部问题列表*/
+.content .body li .item{
+    padding: 10px 5px;
+    border-bottom: 1px solid #eee;
+    line-height: 1.7; 
+}
+
+
+
+.content .body li .item a{
+    margin-right: 5px;
+    color: #999;
+    font-size: 13px;   
+}
+
+.content .body li .item a:hover{
+    color: #698ebf;
+    text-decoration: underline;
+}
+
+.content .body li .item h4 a{
+    font-weight: bold;
+    color: #259;
+    font-size: 14px;   
+}
+
+/*分页*/
+
+.pagination{
+    padding: 16px 24px;
+}
+
+.pagination .buttons{
+    width: 430px;
+    margin: 0 auto;
+}
+
+.pagination a,
+.pagination span{
+    border: 0;
+    margin-right: 32px;
+    background-color: white;
+    color: #259;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.pagination a:hover{
+    color: #3e7ac2;
+}
+
+
+
+
+
+
+
+
+/*右侧工具栏部分*/
+.sidebar{
+	float: right;
+	width: 270px;
+	height: 600px;
+	margin-left: 58px;
+}
+
+
+/*话题信息部分*/
+
+.topic-info .topic-meta{
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+    font-size: 13px;
+    color: #999;
+}
+
+
+.topic-info .topic-meta button.follow{
+    color: #3e5e00;
+    text-shadow: 0 1px 0 rgba(255,255,255,.3);
+    background: linear-gradient(to bottom,#adda4d,#86b846);
+    border: 1px solid #6d8f29;
+    box-shadow: 0 1px 0 rgba(255,255,255,.5) inset, 0 1px 0 rgba(0,0,0,.2);
+    font-size: 14px;
+    line-height: 1.7;
+    vertical-align: middle;
+    text-align: center;
+    padding: 4px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+    white-space: nowrap;
+    box-sizing: border-box;
+}
+
+.topic-info .topic-meta button.unfollow{
+    color: #666;
+    text-shadow: 0 1px 0 #fff;
+    background: linear-gradient(to bottom,#f8f8f9,#e6e6e8);
+    border: 1px solid #bbb;
+    box-shadow: 0 1px 0 #fff inset, 0 1px 0 rgba(0,0,0,.1);
+    font-size: 14px;
+    line-height: 1.7;
+    text-decoration: none!important;
+    vertical-align: middle;
+    display: inline-block;
+    text-align: center;
+    padding: 4px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+    white-space: nowrap;
+    box-sizing: border-box;
+}
+
+
+.topic-info .topic-meta a{
+    margin-left: 10px;
+    color: #259;
+    font-weight: bold;
+}
+
+.topic-info .topic-desc{
+    padding: 15px 0;
+    border-bottom: 1px solid #ddd;
+    font-size: 13px;
+    line-height: 1.7;
+    color: #222;
+}
+
+.topic-info .topic-desc h4{
+    font-weight: bold;
+}
+
+/*footer部分*/
+
+.footer{
+	padding-top: 10px;
+	padding-left: 3px;
+}
+
+.footer, .footer a{
+	/*display: inline-block;*/
+	line-height: 24px;
+	color: #666;
+	font-size: 13px;
+}
+
+.footer a:hover{
+	text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

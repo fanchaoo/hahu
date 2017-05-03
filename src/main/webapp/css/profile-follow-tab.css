@@ -1,0 +1,277 @@
+﻿
+.follow-tab{
+    padding: 0 24px;
+}
+
+.follow-tab .tab-title{
+	position: relative;
+	height: 34px;
+    padding: 11px 0;
+	border-bottom: 1px solid #f0f2f7;
+	line-height: 34px;
+}
+
+.follow-tab .tab-title a{
+	float: left;
+	margin-right: 36px;
+	font-size: 15px;
+	font-weight: 500;
+	color: #404040;
+	cursor: pointer;
+}
+
+
+/*关注的人列表*/
+.follow-tab .following-people-list ul li{
+	padding: 20px 0;
+	border-bottom: 1px solid #f0f2f7;
+	overflow: hidden;
+}
+
+.follow-tab .following-people-list ul li img{
+	float: left;
+	width: 60px;
+	height: 60px;
+	border-radius: 4px;
+	margin-right: 20px;
+}
+
+.follow-tab .following-people-list ul li .user-info{
+	float: left;
+	width: 444px;
+}
+
+.follow-tab .following-people-list ul li .user-info .user-name{
+	font-size: 20px;
+	color: #333;
+	line-height: 32px;
+}
+
+.follow-tab .following-people-list ul li .user-info .user-desc{
+    font-size: 15px;
+    line-height: 24px;
+    color: #404040;
+}
+
+.follow-tab .following-people-list ul li button.follow-button{
+	float: right;
+	width: 96px;
+	padding: 0 16px;
+	border-radius: 3px;
+	font-size: 14px;
+	line-height: 34px;
+	cursor: pointer;
+	position: relative;
+    top: 30px;
+    
+    background-color: #0f88eb;
+	border: 1px solid #0f88eb;
+	color: white;
+}
+
+.follow-tab .following-people-list ul li button.unfollow-button{
+	float: right;
+	width: 96px;
+	padding: 0 16px;
+	border-radius: 3px;
+	font-size: 14px;
+	line-height: 34px;
+	cursor: pointer;
+	position: relative;
+    top: 30px;
+    
+	background-color: #c3ccd9;
+	border: 1px solid #c3ccd9;
+	color: white;
+}
+
+
+.follow-tab .following-people-list ul li .user-info-meta{
+	color: #8590a6;
+	font-size: 14px;
+	padding-bottom: 14px;
+	margin-top: 5px;
+}
+
+
+/*关注者列表*/
+.follow-tab .follower-people-list ul li{
+	padding: 20px 0;
+	border-bottom: 1px solid #f0f2f7;
+	overflow: hidden;
+}
+
+.follow-tab .follower-people-list ul li img{
+	float: left;
+	width: 60px;
+	height: 60px;
+	border-radius: 4px;
+	margin-right: 20px;
+}
+
+.follow-tab .follower-people-list ul li .user-info{
+	float: left;
+	width: 444px;
+}
+
+.follow-tab .follower-people-list ul li .user-info .user-name{
+	font-size: 20px;
+	color: #333;
+	line-height: 32px;
+}
+
+.follow-tab .follower-people-list ul li .user-info .user-desc{
+    font-size: 15px;
+    line-height: 24px;
+    color: #404040;
+}
+
+.follow-tab .follower-people-list ul li button.follow-button{
+	float: right;
+	width: 96px;
+	padding: 0 16px;
+	border: 1px solid #0f88eb;
+	border-radius: 3px;
+	font-size: 14px;
+	line-height: 34px;
+	background-color: #0f88eb;
+	color: white;
+	cursor: pointer;
+	position: relative;
+    top: 30px;
+}
+
+.follow-tab .follower-people-list ul li .user-info-meta{
+	color: #8590a6;
+	font-size: 14px;
+	padding-bottom: 14px;
+	margin-top: 5px;
+}
+
+
+
+/*关注的话题列表*/
+.follow-tab .following-topic-list ul li{
+	padding: 20px 0;
+	border-bottom: 1px solid #f0f2f7;
+	overflow: hidden;
+}
+
+.follow-tab .following-topic-list ul li img{
+	float: left;
+	width: 60px;
+	height: 60px;
+	border-radius: 4px;
+	margin-right: 20px;
+}
+
+.follow-tab .following-topic-list ul li .topic-info{
+	float: left;
+	width: 444px;
+}
+
+.follow-tab .following-topic-list ul li .topic-info .topic-name a{
+	font-size: 20px;
+	color: #333;
+	line-height: 36px;
+}
+
+.follow-tab .following-topic-list ul li .topic-info .answer-count a{
+	font-size: 14px;
+	color: #3e7ac2;
+}
+
+
+/*关注的专栏列表*/
+.follow-tab .following-zhuanlan-list ul li{
+	padding: 20px 0;
+	border-bottom: 1px solid #f0f2f7;
+	overflow: hidden;
+}
+
+.follow-tab .following-zhuanlan-list ul li img{
+	float: left;
+	width: 60px;
+	height: 60px;
+	border-radius: 4px;
+	margin-right: 20px;
+}
+
+.follow-tab .following-zhuanlan-list ul li .zhuanlan-info{
+	float: left;
+	width: 444px;
+}
+
+.follow-tab .following-zhuanlan-list ul li .zhuanlan-info .zhuanlan-name a{
+	font-size: 20px;
+	color: #333;
+	line-height: 32px;
+}
+
+.follow-tab .following-zhuanlan-list ul li .zhuanlan-info .zhuanlan-desc{
+    font-size: 15px;
+    line-height: 24px;
+    color: #404040;
+}
+
+.follow-tab .following-zhuanlan-list ul li .zhuanlan-info-meta{
+	color: #8590a6;
+	font-size: 14px;
+	padding-bottom: 14px;
+	margin-top: 5px;
+}
+
+
+/*关注的收藏夹列表*/
+.follow-tab .following-collection-list ul li{
+	padding: 20px 0;
+	border-bottom: 1px solid #f0f2f7;
+	overflow: hidden;
+}
+
+.follow-tab .following-collection-list ul li .collection-info{
+	float: left;
+	width: 444px;
+}
+
+.follow-tab .following-collection-list ul li .collection-info .collection-name a{
+	font-size: 20px;
+	color: #333;
+	line-height: 32px;
+}
+
+
+.follow-tab .following-collection-list ul li .collection-info-meta{
+	color: #8590a6;
+	font-size: 14px;
+	padding-bottom: 14px;
+	margin-top: 5px;
+}
+
+
+
+/*关注的问题列表*/
+.follow-tab .following-question-list ul li{
+	padding: 20px 0;
+	border-bottom: 1px solid #f0f2f7;
+	overflow: hidden;
+}
+
+.follow-tab .following-question-list ul li .question-info{
+	float: left;
+	width: 444px;
+}
+
+.follow-tab .following-question-list ul li .question-info .question-name a{
+	font-size: 20px;
+	color: #333;
+	line-height: 32px;
+}
+
+
+.follow-tab .following-question-list ul li .question-info-meta{
+	color: #8590a6;
+	font-size: 14px;
+	padding-bottom: 14px;
+	margin-top: 5px;
+}

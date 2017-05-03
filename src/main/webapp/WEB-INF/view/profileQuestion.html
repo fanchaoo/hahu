@@ -1,0 +1,236 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>个人信息</title>
+
+	<link rel="stylesheet" type="text/css" href="${base}/css/base.css">
+	<link rel="stylesheet" type="text/css" href="${base}/css/nav2.css">
+	<link rel="stylesheet" type="text/css" href="${base}/css/profile.css">
+	<link rel="stylesheet" type="text/css" href="${base}/css/profile-follow-tab.css">
+
+</head>
+<body>
+	<#assign base = request.contextPath/>
+	<base id="baseUrl" href="${base}/"/>
+	<div class="nav">
+		<div class="wrap">
+			<a href="${base}/" class="logo">问答</a>
+			<ul class="nav-top">
+				<li><a href="${base}/">首页</a></li>
+				<li><a href="${base}/explore">发现</a></li>
+				<li><a href="${base}/topics">话题</a></li>
+			</ul>
+			<div class="search-area">
+				<form action="${base}/listTopicByTopicName" action="post">
+					<input type="text" name="topicName" placeholder="搜索你感兴趣的内容...">
+					<button class="magnifier"></button>
+					<button class="ask">提问</button>
+				</form>
+			</div>
+			<div class="nav-right">
+				<a href="${base}/message" class="message"></a>
+				<a href="" class="profile"><img class="profile-avatar" src=""></a>
+			</div>
+		</div>
+	</div>
+
+	<div class="profile-wrap">
+		<div class="profile-header">
+			<div class="profile-bgc">
+				<img src="http://od6v5lenq.bkt.clouddn.com/1484c2a1-8f6d-4603-9316-94f87217e380.jpg">
+			</div>
+			<div class="profile-info">
+				<div class="profile-avatar">
+					<img src="${user.avatarUrl}">
+				</div>
+
+				<div class="two-button" id="isSelf" data-id="${isSelf?c}">
+					<#if isSelf==true>
+						<a href="${base}/setting" class="follow-button">编辑信息</a>
+					<#else>
+						<button id="followUserButton" class="follow-button">关注</button>
+						<button id="unfollowUserButton" class="unfollow-button">取消关注</button>
+					</#if>
+				</div>
+
+				<div class="info-title">
+					<span>${user.username}</span>
+					<span>${user.simpleDesc}</span>
+				</div>
+				<#if user.position?? >
+					<div class="info-item">
+						<span class="item-key">居住地</span>
+						<div class="item-value">${user.position}</div>
+					</div>
+				</#if>
+				<#if user.industry?? >
+					<div class="info-item">
+						<span class="item-key">所在行业</span>
+						<div class="item-value">${user.position}</div>
+					</div>
+				</#if>
+				<#if user.career?? >
+					<div class="info-item">
+						<span class="item-key">职业经历</span>
+						<div class="item-value">${user.career}</div>
+					</div>
+				</#if>
+				<#if user.education?? >
+					<div class="info-item">
+						<span class="item-key">教育背景</span>
+						<div class="item-value">${user.education}</div>
+					</div>
+				</#if>
+				<#if user.fullDesc?? >
+					<div class="info-item">
+						<span class="item-key">个人简介</span>
+						<div class="item-value">${user.fullDesc}</div>
+					</div>
+				</#if>
+			</div>
+		</div>
+
+		<div class="main">
+			<div class="content" id="content">
+				<ul class="tab-header">
+					<li><a href="${base}/profile/${user.userId}" id="tab-header-answer">回答</a></li>
+					<li><a href="${base}/profileQuestion/${user.userId}" id="tab-header-question" class="tab-header-active" >提问</a></li>
+					<li><a href="${base}/profileCollection/${user.userId}" id="tab-header-collection" >收藏</a></li>
+					<li><a href="${base}/profileFollowPeople/${user.userId}" id="tab-header-follow">关注</a></li>
+				</ul>
+
+
+				<div class="question-tab">
+					<div class="tab-title">
+						<h3>他的提问</h3>
+					</div>
+
+					<div class="question-list">
+						<ul>
+							<#list pageBean.list as question>
+								<li>
+									<h3 class="question-title">
+										<a href="#">${question.questionTitle}</a>
+									</h3>
+									<div class="question-meta">
+										<span>${question.createTime?number_to_date}</span><span class="dot-split">.</span>
+										<span>15 个回答</span><span class="dot-split">.</span>
+										<span>43 个关注</span>
+									</div>
+								</li>
+							</#list>
+						</ul>
+
+						<div class="pagination">
+							<div class="buttons">
+								<a class="pre-page" href="${base}/profileQuestion/${user.userId}?page=1">首页</a>
+								<!-- 上一页处理 -->
+								<#if pageBean.curPage!=1>
+									<a class="pre-page" href="${base}/profileQuestion/${user.userId}?page=${pageBean.curPage-1}">上一页</a>
+								<#else>
+									<span>上一页</span>
+								</#if>
+								
+								<!-- 中间页码 -->
+								<#if pageBean.allPage<=6>
+									<#list 1..pageBean.allPage as i>
+										<a href="${base}/profileQuestion/${user.userId}?page=${i}">${i}</a>
+									</#list>
+								<#elseif pageBean.curPage<=3>
+									<#list 1..6 as i>
+										<a href="${base}/profileQuestion/${user.userId}?page=${i}">${i}</a>
+									</#list>
+								<#elseif pageBean.allPage - pageBean.curPage<=5>
+									<#list pageBean.allPage-5..pageBean.allPage as i>
+										<a href="${base}/profileQuestion/${user.userId}?page=${i}">${i}</a>
+									</#list>
+								<#else>
+									<#list pageBean.curPage-2..pageBean.curPage+3 as i>
+										<a href="${base}/profileQuestion/${user.userId}?page=${i}">${i}</a>
+									</#list>
+								</#if>
+								
+								<!-- 下一页处理 -->
+								<#if pageBean.curPage!=pageBean.allPage>
+									<a class="next-page" href="${base}/profileQuestion/${user.userId}?page=${pageBean.curPage+1}">下一页</a>
+								<#else>
+									<span>下一页</span>
+								</#if>
+								<a class="next-page" href="${base}/profileQuestion/${user.userId}?page=${pageBean.allPage}">尾页</a>
+							</div>
+							</div>
+					</div>
+				</div>
+
+			</div>
+
+
+
+			<div class="sidebar">
+				<div class="profile-achieve">
+					<h3>个人成就</h3>
+					<div class="achieve-info">
+						<p><i class="sprite-thumb"></i>&nbsp;&nbsp;&nbsp;获得<span> ${user.likedCount} </span>次赞同</p>
+						<p>获得<span> ${user.collectedCount} </span>次收藏</p>
+					</div>
+				</div>
+
+				<div class="follow-info">
+					<div class="follow-people">
+						<div class="wrap">
+							<h4>
+								<p>关注了</p>
+								<p>${user.followCount}</p>
+							</h4>
+							<h4>
+								<p>关注者</p>
+								<p>${user.followedCount}</p>
+							</h4>
+						</div>
+					</div>
+
+					<div class="follow-other" id="follow-other">
+						<ul>
+							<li>
+								<a id="sidebar-following-topic" href="${base}/profileFollowTopic/${user.userId}" >
+									<span>关注的话题</span>
+									<span>${user.followTopicCount}</span>
+								</a>
+							</li>
+							<li>
+								<a id="sidebar-following-question" href="${base}/profileFollowQuestion/${user.userId}" >
+									<span>关注的问题</span>
+									<span>${user.followQuestionCount}</span>
+								</a>
+							</li>
+							<li>
+								<a id="sidebar-following-collection" href="${base}/profileFollowCollection/${user.userId}" >
+									<span>关注的收藏夹</span>
+									<span>${user.followCollectionCount}</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="footer">
+					<a href="#">建议反馈</a>
+					<span> • </span>
+					<a href="#">联系我们</a>
+					<div></div>
+					<span>@ 2017 蛤乎</span>
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+
+
+<script type="text/javascript" src="${base}/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="${base}/js/profile.js"></script>
+
+
+
+</body>
+</html>

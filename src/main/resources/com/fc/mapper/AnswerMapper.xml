@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fc.mapper.AnswerMapper">
+
+    <resultMap type="com.fc.model.User" id="userMap">
+        <id column="user_id" property="userId"></id>
+        <result column="username" property="username"></result>
+        <result column="avatar_url" property="avatarUrl"></result>
+        <result column="simple_desc" property="simpleDesc"></result>
+    </resultMap>
+    
+	<resultMap type="com.fc.model.Question" id="questionMap">
+        <id column="question_id" property="questionId"></id>
+        <result column="question_title" property="questionTitle"></result>
+    </resultMap>
+
+    <resultMap type="com.fc.model.Answer" id="answerMap">
+        <id column="answer_id" property="answerId"/>
+        <result column="answer_content" property="answerContent"/>
+        <result column="liked_count" property="likedCount"/>
+        <result column="create_time" property="createTime"/>
+
+        <association property="user" javaType="com.fc.model.User" resultMap="userMap" />
+        <association property="question" javaType="com.fc.model.Question" resultMap="questionMap" />
+    </resultMap>
+
+
+    <insert id="insertAnswer">
+        <selectKey resultType="int" order="AFTER" keyProperty="answerId">
+            select last_insert_id() as answerId
+        </selectKey>
+        insert into answer(answer_content,create_time,question_id,user_id)
+        values(#{answerContent},#{createTime},#{questionId},#{userId})
+    </insert>
+    
+    <select id="selectAnswerByQuestionId" resultType="com.fc.model.Answer">
+    	select * from answer where question_id = #{questionId}
+    </select>
+
+	<select id="selectAnswerCountByUserId" resultType="int">
+		select count(*) from answer where user_id = #{userId}
+	</select>
+	
+	<select id="listAnswerByUserId" resultMap="answerMap">
+		select a.answer_id,a.answer_content,a.liked_count,a.create_time,
+		q.question_id,q.question_title,u.user_id,u.username,u.avatar_url,u.simple_desc
+		from answer a join question q on a.question_id = q.question_id
+		join user u on a.user_id = u.user_id
+		where u.user_id = #{userId}
+		limit #{offset},#{limit}
+	</select>
+	
+	<select id="listAnswerByAnswerId" resultMap="answerMap">
+		select a.answer_id,a.answer_content,a.liked_count,a.create_time,
+		q.question_id,q.question_title,u.user_id,u.username,u.avatar_url,u.simple_desc
+		from answer a join question q on a.question_id = q.question_id
+		join user u on a.user_id = u.user_id
+		<where>
+			a.answer_id in
+			<foreach collection="list" item="item" index="index" open="("
+				separator="," close=")">
+				#{item}
+			</foreach>
+		</where>
+	</select>
+
+    <select id="listAnswerCountByQuestionId" resultType="int">
+    	select count(*) from answer
+		<where>
+			question_id in
+			<foreach collection="list" item="item" index="index" open="("
+				separator="," close=")">
+				#{item}
+			</foreach>
+		</where>
+    </select>
+    
+    <select id="selectAnswerCountByQuestionId" resultType="int">
+    	select count(*) from answer
+    	where question_id = #{questionId}
+    </select>
+        
+    <select id="listGoodAnswerByQuestionId" parameterType="map" resultMap="answerMap">
+    	select a.answer_id,a.answer_content,a.liked_count,a.create_time,
+		q.question_id,q.question_title,u.user_id,u.username,u.avatar_url,u.simple_desc
+		from answer a join question q on a.question_id = q.question_id
+		join user u on a.user_id = u.user_id
+		<where>
+			a.question_id in
+			<foreach collection="questionIdList" item="item" index="index" open="("
+				separator="," close=")">
+				#{item}
+			</foreach>
+		</where>
+		order by liked_count desc
+		limit #{offset},#{limit}
+    </select>
+    
+    <update id="updateLikedCount">
+    	update answer set liked_count = liked_count + 1
+    	where answer_id = #{answerId}
+    </update>
+    
+    <select id="listAnswerByUserIdList" resultMap="answerMap">
+    	select a.answer_id,a.answer_content,a.liked_count,a.create_time,
+		q.question_id,q.question_title,u.user_id,u.username,u.avatar_url,u.simple_desc
+		from answer a join question q on a.question_id = q.question_id
+		join user u on a.user_id = u.user_id
+		<where>
+			u.user_id in
+			<foreach collection="userIdList" item="item" index="index" open="("
+				separator="," close=")">
+				#{item}
+			</foreach>
+		</where>
+		order by a.create_time desc
+		limit #{offset},#{limit}
+    </select>
+    
+    
+    <select id="listAnswerByCreateTime" resultMap="answerMap">
+    	select a.answer_id,a.answer_content,a.liked_count,a.create_time,
+		q.question_id,q.question_title,u.user_id,u.username,u.avatar_url,u.simple_desc
+		from answer a join question q on a.question_id = q.question_id
+		join user u on a.user_id = u.user_id
+		where a.create_time > #{createTime}
+		order by a.liked_count desc,a.create_time desc
+		limit 0,10
+    </select>
+    
+    <select id="selectUserIdByAnswerId" resultType="int">
+    	select user_id from answer
+    	where answer_id = #{answerId}
+    </select>
+</mapper>
+
+
+
+

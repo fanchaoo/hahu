@@ -1,0 +1,111 @@
+html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form, fieldset, legend, img {
+    margin: 0;
+    padding: 0;
+}
+
+html,body{
+    height: 100%;
+    width: 100%;
+}
+
+body{
+    font-family: 'Helvetica Neue',Helvetica,'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Noto Sans CJK SC','WenQuanYi Micro Hei',Arial,sans-serif;
+
+}
+
+ul, ol {
+    list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-decoration: none;
+    font-weight: normal;
+    font-size: 100%;
+}
+
+s, i, em {
+    font-style: normal;
+    text-decoration: none;
+}
+
+fieldset, img, input, button {
+    border: none;
+    padding: 0;
+    margin: 0;
+    outline-style: none;
+    font-size: 14px;
+    font-family: 'Helvetica Neue',Helvetica,'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Noto Sans CJK SC','WenQuanYi Micro Hei',Arial,sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: #259;
+}
+
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
+}
+
+.color259{
+    color: #259;
+}
+
+
+.show{
+    display: block;
+}
+
+.hide{
+    display: none;
+}
+
+.c999{
+	color: #999;
+}
+
+
+
+.like-clicked{
+	background-color: #698EBF!important;
+	color: white!important;
+}
+
+.like-clicked-i{
+	border: 6px solid #698EBF!important;
+	border-bottom: 6px solid white!important;
+}
+
+.like-unclicked{
+	background-color: #EFF6FA!important;
+	color: #698ebf!important;
+}
+
+.like-unclicked-i{
+	border: 6px solid white!important;
+	border-bottom: 6px solid #698EBF!important;
+}
+
+.loading{
+	width: 632px;
+	height: 250px;
+	background-image: url("http://od6v5lenq.bkt.clouddn.com/1c3d1c87-fc48-4a89-af54-daf7429bf4df.gif");
+	background-repeat: no-repeat;
+	background-position: center top;
+}
+
+.text-danger{
+	color: red;
+}

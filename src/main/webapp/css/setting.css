@@ -1,0 +1,193 @@
+﻿
+/*主体部分*/
+.main{
+	width: 960px;
+	margin: 0 auto;
+    font-size: 13px;
+}
+
+/*内容部分*/
+.content{
+
+}
+
+.content div.divide{
+    border-bottom: 1px solid #ccc;
+}
+
+.content ul.head{
+    position: relative;
+    height: 28px;
+}
+
+.content ul.head li{
+    position: absolute;
+    height: 17px;
+    padding: 5px 15px;
+    font-size: 13px;
+    color: #259;
+    cursor: pointer;
+}
+
+.content ul.head li:nth-child(1){
+    top: 0;
+    left: 0;
+}
+
+.content ul.head li:nth-child(2){
+    top: 0;
+    left: 84px;
+}
+
+.content ul.head li.active{
+    z-index: 1;
+    color: #666;
+    background-color: white;
+    border: 1px #ccc solid;
+    border-bottom: none;
+    height: 18px;
+}
+
+.content ul.body{
+    padding: 20px 0;
+}
+
+.content ul.body div{
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+}
+
+
+
+
+
+
+
+
+/*遮罩层处理*/
+
+.mask{
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,.5);
+    zoom:1001;
+}
+
+.upon-mask{
+    overflow: hidden;
+    display: none;
+    position: fixed;
+    border-radius: 8px;
+    width: 550px;
+    height: 420px;
+    background-color: #fff;
+    top: 50%;
+    left: 50%;
+    margin-top: -210px;
+    margin-left: -275px;
+    box-shadow: 0 0 80px 0 rgba(0,0,0,.4);
+}
+
+.upon-mask h3{
+    border-radius: 8px 8px 0 0;
+    padding: 10px 20px;
+    line-height: 14px;
+    background: linear-gradient(to bottom,#1D7FE2,#0865C2);
+}
+
+.upon-mask h3 span:first-child{
+    color: #fff;
+    text-shadow: 0 1px 1px rgba(0,0,0,.4);
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.upon-mask h3 span.close-mask{
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    color: blue;
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+    border-radius: 8px;
+    background-color: white;
+    text-align: center;
+    line-height: 17px;
+}
+
+.upon-mask form{
+    padding: 10px 20px;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+
+
+.upon-mask input{
+    width: 489px;
+    padding: 8px 10px;
+    font-size: 13px;
+    line-height: 15px;
+    box-shadow: 0 1px 1px rgba(0,0,0,.1) inset;
+    border-radius: 3px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #222;
+    margin: 10px 0;
+}
+
+.upon-mask div{
+    margin-top: 5px;
+}
+
+
+.upon-mask button{
+    float: right;
+    color: #fff;
+    text-shadow: 0 -1px 0 rgba(0,0,0,.5);
+    background: #1472cf;
+    background: -webkit-linear-gradient(top,#1d7fe2,#0865c2);
+    background: linear-gradient(to bottom,#1d7fe2,#0865c2);
+    border: 1px solid #0D6EB8;
+    box-shadow: 0 1px 0 rgba(255,255,255,.2) inset, 0 1px 0 rgba(0,0,0,.2);
+    font-size: 14px;
+    line-height: 1.7;
+    text-decoration: none!important;
+    text-align: center;
+    padding: 4px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+    white-space: nowrap;
+    box-sizing: border-box;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

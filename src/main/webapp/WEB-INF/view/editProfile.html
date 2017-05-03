@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>编辑信息</title>
+
+	<link rel="stylesheet" type="text/css" href="${base}/css/wangEditor.css">
+	<link rel="stylesheet" type="text/css" href="${base}/css/base.css">
+	<link rel="stylesheet" type="text/css" href="${base}/css/nav.css">
+	<link rel="stylesheet" type="text/css" href="${base}/css/mask.css">
+	<link rel="stylesheet" type="text/css" href="${base}/css/editProfile.css?asd">
+</head>
+<body>
+	<#include "nav.html"/>
+	
+<div class="main" style="width:960px;margin:0 auto;">
+		<div class="edit-header"><span></span>&nbsp;编辑信息</div>
+		<form action="editProfile" method="post">
+			<div class="edit-title">
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				用户名：<input type="text" name="username" value="${user.username!}">
+			</div>
+			<div class="edit-title">
+				一句话介绍：<input type="text" name="simpleDesc" value="${user.simpleDesc!}">
+			</div>
+			<div class="edit-title">
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				居住地：<input type="text" name="position" value="${user.position!}">
+			</div>
+			<div class="edit-title">
+				&nbsp;&nbsp;&nbsp;
+				所在行业：<input type="text" name="industry" value="${user.industry!}">
+			</div>
+			<div class="edit-title">
+			&nbsp;&nbsp;&nbsp;
+				职业经历：<input type="text" name="career" value="${user.career!}">
+			</div>
+			<div class="edit-title">
+			&nbsp;&nbsp;&nbsp;
+				教育背景：<input type="text" name="education" value="${user.education!}">
+			</div>
+			<div class="edit-title">
+			&nbsp;&nbsp;&nbsp;
+				个人简介：<input type="text" name="fullDesc" value="${user.fullDesc!}">
+			</div>
+			<div class="relative">
+				<button type="submit" class="edit-submit">确认编辑</button>
+			</div>
+		</form>
+
+        <div style="margin-top: 60px;"></div>
+		<div class="edit-header"><span></span>&nbsp;修改密码</div>
+		<form action="updatePassword" method="post">
+			<div class="edit-title">
+                <div class="text-danger">${error!}</div>
+				原密码：<input type="password" name="password">
+			</div>
+			<div class="edit-title">
+				新密码：<input type="password" name="newpassword">
+			</div>
+			<div class="relative">
+				<button type="submit" class="edit-submit">确认修改</button>
+			</div>
+		</form>
+
+        <div style="margin-top: 60px;"></div>
+        <div class="edit-header"><span></span>&nbsp;更换头像</div>
+        <form action="updateAvatarUrl" method="post" enctype="multipart/form-data">
+            <div class="edit-title">
+				<span class="text-danger"></span>
+                <input type="file" name="paramName">
+            </div>
+            <div class="relative">
+                <button type="submit" class="edit-submit">确认更新</button>
+            </div>
+        </form>
+
+	</div><!-- 主体结束 -->
+
+
+	<#include "mask.html"/>
+
+
+<script type="text/javascript" src="${base}/js/wangEditor.js"></script>
+<script type="text/javascript" src="${base}/js/nav.js"></script>
+<script type="text/javascript" src="${base}/js/mask.js"></script>
+
+
+</body>
+</html>
+

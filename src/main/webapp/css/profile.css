@@ -1,0 +1,996 @@
+﻿
+.profile-wrap{
+	width: 1000px;
+	margin: 0 auto;
+}
+
+
+/*profile的头部*/
+.profile-header{
+	width: 998px;
+	padding-bottom: 20px;
+    border: 1px solid #e7eaf1;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0,37,55,.05);
+    box-sizing: border-box;
+    margin-bottom: 14px;
+}
+
+.profile-header .profile-bgc{
+	height: 240px;
+	background-color: #96a1a9;
+}
+
+.profile-header .profile-bgc img{
+	width: 996px;
+	height: 240px;
+}
+
+
+
+.profile-header .profile-info{
+	position: relative;
+	width: 760px;
+	padding-left: 190px;
+	margin: 0 auto;
+}
+
+.profile-header .profile-info .info-title{
+	padding: 16px 0;
+}
+
+.profile-header .profile-info .info-title span:nth-child(1){
+	font-size: 26px;
+    font-weight: 500;
+    line-height: 30px;
+	color: #404040;
+}
+
+.profile-header .profile-info .info-title span:nth-child(2){
+    margin-left: 12px;
+    font-size: 18px;
+}
+
+
+
+.profile-header .profile-info .info-item{
+	overflow: hidden;
+	font-size: 14px;
+    line-height: 42px;
+    color: #404040;
+}
+
+.profile-header .profile-info .info-item .item-key{
+	float: left;
+	width: 100px;
+}
+
+.profile-header .profile-info .info-item .item-value{
+	float: left;
+}
+
+
+/*用户头像*/
+.profile-header .profile-info .profile-avatar{
+	position: absolute;
+	top: -25px;
+	left: 0;
+    border: 4px solid #fff;
+    border-radius: 8px;
+}
+
+.profile-header .profile-info .profile-avatar img{
+	width: 160px;
+	height: 160px;
+	border-radius: 4px;
+}
+
+.profile-header .profile-info .two-button{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.profile-header .profile-info .two-button .unfollow-button{
+	width: 96px;
+	height: 34px;
+	padding: 0 16px;
+	margin-right: 16px;
+
+	background-color: #c3ccd9;
+	border: 1px solid #c3ccd9;
+	color: white;
+	
+	font-size: 14px;
+	line-height: 32px;
+	text-align: center;
+	border-radius: 3px;
+	cursor: pointer;
+}
+
+.profile-header .profile-info .two-button .follow-button{
+	width: 76px;
+    height: 34px;
+    padding: 0 16px;
+    margin-right: 16px;
+    background-color: #0f88eb;
+    border: 1px solid #0f88eb;
+    color: white;
+    font-size: 14px;
+    line-height: 32px;
+    text-align: center;
+    border-radius: 3px;
+    cursor: pointer;
+    display: block;
+}
+
+
+
+.profile-header .profile-info .two-button .private-message-button{
+	width: 96px;
+	height: 34px;
+	padding: 0 16px;
+	border: 1px solid #ccd8e1;
+
+	background-color: white;
+	color: #8590a6;
+	font-size: 14px;
+	line-height: 32px;
+	text-align: center;
+	border-radius: 3px;
+}
+
+
+
+
+/*主体部分*/
+
+.main{
+	overflow: hidden;
+}
+
+.content{
+	float: left;
+	width: 688px;
+	border: 1px solid #e7eaf1;
+    border-radius: 2px;
+    margin-right: 14px;
+    margin-bottom: 14px;
+    box-shadow: 0 1px 3px rgba(0,37,55,.05);
+    box-sizing: border-box;
+}
+
+
+
+/*切换tab的标题栏*/
+
+/*当前活跃面板样式*/
+.tab-header-active{
+	border-bottom: 3px solid #0f88eb;
+	font-weight: bold;
+}
+
+.content ul.tab-header{
+	height: 55px;
+	padding: 0 4px;
+	border-bottom: 1px solid #f0f2f7;
+}
+
+.content ul.tab-header li{
+	float: left;
+	padding: 0 20px;
+}
+
+.content ul.tab-header li a{
+	display: block;
+	font-size: 16px;
+	line-height: 51px;
+	color: #404040;
+	cursor: pointer;
+}
+
+.content ul.tab-header li a span{
+	margin-left: 6px;
+    font-size: 14px;
+    font-weight: 300;
+    color: #a1aebf;
+}
+
+
+
+
+/*右边侧栏部分*/
+.sidebar{
+	float: left;
+	width: 294px;
+    box-shadow: 0 1px 3px rgba(0,37,55,.05);
+    box-sizing: border-box;
+
+}
+
+/*个人成就*/
+.sidebar .profile-achieve{
+	border: 1px solid #e7eaf1;
+    border-radius: 2px;
+    margin-bottom: 14px;
+}
+
+.sidebar .profile-achieve h3{
+	padding-left: 14px;
+	border-bottom: 1px solid #e7eaf1;
+	line-height: 55px;
+	font-size: 15px;
+	color: #555;
+}
+
+.sidebar .profile-achieve .achieve-info{
+	height: 99px;
+	padding: 17px 0 17px 16px;
+}
+
+.sidebar .profile-achieve .achieve-info p:nth-child(1){
+	font-size: 15px;
+	line-height: 34px;
+	color: #555;
+}
+
+.sidebar .profile-achieve .achieve-info p:nth-child(2){
+	font-size: 14px;
+	line-height: 30px;
+	color: #8590a6;
+}
+
+.sprite-thumb{
+	display: inline-block;
+	background-image: url(../image/sprite-vote.png);
+    background-position: -10px -15px;
+    width: 16px;
+    height: 15px;
+    vertical-align: -2px;
+}
+
+
+/*关注信息*/
+.sidebar .follow-info{
+
+}
+
+
+/*关注的人的信息*/
+.sidebar .follow-info .follow-people{
+	border: 1px solid #e7eaf1;
+    border-radius: 2px;
+    margin-bottom: 14px;
+}
+
+.sidebar .follow-info .follow-people .wrap{
+	padding: 20px 0 16px;
+    overflow: hidden;
+}
+
+
+
+.sidebar .follow-info .follow-people h4:nth-child(1){
+	float: left;
+	width: 146px;
+	height: 44px;
+	border-right: 1px solid #e7eaf1;
+	text-align: center;
+}
+
+.sidebar .follow-info .follow-people h4:nth-child(2){
+	float: left;
+	width: 145px;
+	height: 44px;
+	text-align: center;
+}
+
+.sidebar .follow-info .follow-people h4 p:nth-child(1){
+	font-size: 14px;
+	color: #8590a6;
+}
+
+.sidebar .follow-info .follow-people h4 p:nth-child(2){
+	font-size: 18px;
+	line-height: 30px;
+	color: #404040;
+}
+
+.sidebar .follow-info .follow-people h5{
+	position: relative;
+	padding-left: 42px;
+	border-top: 1px solid #e7eaf1;
+	line-height: 51px;
+	color: #555;
+}
+
+.sprite-my-vote{
+	position: absolute;
+	top: 19px;
+    left: 17px;
+	background-image: url(../image/sprite-vote.png);
+    background-position: -9px -50px;
+    width: 18px;
+    height: 12px;
+    vertical-align: -2px;
+}
+
+/*其它关注信息*/
+
+.sidebar .follow-info .follow-other ul{
+	padding: 0 3px;
+}
+
+.sidebar .follow-info .follow-other ul li{
+	border-top: 1px solid #f0f2f7;
+	line-height: 46px;
+}
+
+.sidebar .follow-info .follow-other ul li:last-child{
+	border-bottom: 1px solid #f0f2f7;
+}
+
+.sidebar .follow-info .follow-other ul li a{
+	display: block;
+	height: 46px;
+	color: #555;
+	cursor: pointer;
+}
+
+.sidebar .follow-info .follow-other ul li a span:nth-child(2){
+	float: right;
+	color: #8590a6;
+}
+
+
+
+
+/*footer部分*/
+
+.footer{
+	padding-top: 16px;
+	padding-left: 3px;
+	padding-bottom: 14px;
+}
+
+.footer, .footer a{
+	/*display: inline-block;*/
+	line-height: 24px;
+	color: #666;
+	font-size: 13px;
+}
+
+.footer a:hover{
+	text-decoration: underline;
+}
+
+
+/*分页*/
+
+.pagination{
+	padding: 16px 24px;
+}
+
+.pagination .buttons{
+	width: 500px;
+	margin: 0 auto;
+}
+
+.pagination a,
+.pagination span{
+	border: 0;
+	margin-right: 24px;
+	background-color: white;
+	color: #404040;
+	font-size: 14px;
+	cursor: pointer;
+}
+
+.pagination a:hover{
+	color: #3e7ac2;
+}
+
+
+/*提问面板*/
+
+.question-tab{
+    padding: 0 24px;
+}
+
+.question-tab .tab-title{
+	position: relative;
+    padding: 20px 0 30px;
+	border-bottom: 1px solid #f0f2f7;
+}
+
+.question-tab .tab-title h3{
+	float: left;
+	font-size: 15px;
+	font-weight: 700;
+	color: #404040;
+}
+
+.question-tab .question-list ul li{
+	border-bottom: 1px solid #f0f2f7;
+}
+
+.question-tab .question-list ul li h3{
+	padding-top: 26px;
+}
+
+.question-tab .question-list ul li h3 a{
+	color: #404040;
+	font-size: 20px;
+	line-height: 32px;
+}
+
+.question-tab .question-list ul li .question-meta{
+	color: #8590a6;
+	font-size: 14px;
+	padding-bottom: 14px;
+	margin-top: 5px;
+}
+
+
+
+/*收藏面板*/
+
+.collection-tab{
+    padding: 0 24px;
+}
+
+.collection-tab .tab-title{
+	position: relative;
+    padding: 20px 0 30px;
+	border-bottom: 1px solid #f0f2f7;
+}
+
+.collection-tab .tab-title h3{
+	float: left;
+	font-size: 15px;
+	font-weight: 700;
+	color: #404040;
+}
+
+.collection-tab .collection-list ul li{
+	border-bottom: 1px solid #f0f2f7;
+}
+
+.collection-tab .collection-list ul li h3{
+	padding-top: 26px;
+}
+
+.collection-tab .collection-list ul li h3 a{
+	color: #404040;
+	font-size: 20px;
+	line-height: 32px;
+}
+
+.collection-tab .collection-list ul li .collection-meta{
+	color: #8590a6;
+	font-size: 14px;
+	padding-bottom: 14px;
+	margin-top: 5px;
+}
+
+/*点号分隔符*/
+.dot-split{
+	margin: 0 6px 0 10px;
+    position: relative;
+    bottom: 3px;
+}
+
+
+
+/*二级面板活跃状态*/
+
+.tab-header-active-second{
+	font-weight: 700 !important;
+}
+
+
+
+/*分享面板*/
+
+.share-tab{
+    padding: 0 24px;
+}
+
+.share-tab .tab-title{
+	position: relative;
+	height: 34px;
+    padding: 11px 0;
+	border-bottom: 1px solid #f0f2f7;
+	line-height: 34px;
+}
+
+.share-tab .tab-title a{
+	float: left;
+	margin-right: 36px;
+	font-size: 15px;
+	font-weight: 500;
+	color: #404040;
+	cursor: pointer;
+}
+
+
+/*自己的专栏列表*/
+.share-tab .tab-content-zhuanlan ul li{
+	padding: 20px 0;
+	border-bottom: 1px solid #f0f2f7;
+	overflow: hidden;
+}
+
+.share-tab .tab-content-zhuanlan ul li img{
+	float: left;
+	width: 60px;
+	height: 60px;
+	border-radius: 4px;
+	margin-right: 20px;
+}
+
+.share-tab .tab-content-zhuanlan ul li .zhuanlan-info{
+	float: left;
+	width: 444px;
+}
+
+.share-tab .tab-content-zhuanlan ul li .zhuanlan-info .zhuanlan-name a{
+	font-size: 20px;
+	color: #333;
+	line-height: 32px;
+}
+
+.share-tab .tab-content-zhuanlan ul li .zhuanlan-info .zhuanlan-desc{
+    font-size: 15px;
+    line-height: 24px;
+    color: #404040;
+}
+
+.share-tab .tab-content-zhuanlan ul li .zhuanlan-info-meta{
+	color: #8590a6;
+	font-size: 14px;
+	padding-bottom: 14px;
+	margin-top: 5px;
+}
+
+
+/*自己的分享列表*/
+.share-tab .tab-content-share ul li{
+	position: relative;
+	padding: 20px 10px;
+	border-bottom: 1px solid #f0f2f7;
+}
+
+
+.share-tab .tab-content-share ul li .share-meta img{
+	position: absolute;
+	top: 31px;
+    left: 10px;
+	width: 38px;
+	height: 38px;
+	border-radius: 2px;
+}
+
+.share-tab .tab-content-share ul li .share-meta h4{
+	padding-left: 52px;
+	padding-top: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.1;
+}
+
+.share-tab .tab-content-share ul li .share-meta h5{
+	padding-left: 52px;
+	margin-bottom: 16px;
+	margin-top: 6px;
+    font-size: 14px;
+    line-height: 1.2;
+}
+
+.share-tab .tab-content-share ul li .share-meta h6{
+	margin-bottom: 5px;
+	font-size: 14px;
+	color: #8590a6;
+}
+
+.share-tab .tab-content-share ul li .share-content{
+	padding-top: 3px;
+	font-size: 13px;
+    line-height: 27px;
+    color: #404040;
+}
+
+.share-tab .tab-content-share ul li .share-content a{
+	margin-bottom: 5px;
+	font-size: 14px;
+	color: #8590a6;
+}
+
+.share-tab .tab-content-share ul li .share-content a:hover{
+	text-decoration: underline;
+}
+
+
+/*可对回答进行的操作*/
+.share-tab .tab-content-share ul li .share-action{
+	padding: 12px 0;
+	overflow: hidden;
+}
+
+
+.share-tab .tab-content-share ul li .share-action .other-action{
+	float: left;
+	position: relative;
+	top: 6px;
+	left: 0;
+}
+
+.share-tab .tab-content-share ul li .share-action .other-action button{
+	margin-left: 24px;
+	font-size: 14px;
+	background-color: white;
+	color: #7a8599;
+	cursor: pointer;
+}
+
+.share-tab .tab-content-share ul li .share-action .other-action button i{
+	position: relative;
+	top: 2px;
+}
+
+
+
+
+
+
+
+
+/*最近动态面板*/
+
+.activity-tab{
+    padding: 0 24px;
+}
+
+
+.activity-tab .tab-title{
+	position: relative;
+    padding: 20px 0;
+	border-bottom: 1px solid #f0f2f7;
+}
+
+.activity-tab .tab-title h3{
+	float: left;
+	font-size: 15px;
+	font-weight: 700;
+	color: #404040;
+}
+
+
+.activity-tab .tab-content-activity ul li{
+	position: relative;
+	padding: 20px 0;
+	border-bottom: 1px solid #f0f2f7;
+}
+
+.activity-tab .tab-content-activity ul li .activity-title{
+	font-size: 20px;
+	line-height: 26px;
+	font-weight: 500;
+	color: #404040;
+}
+
+
+.activity-tab .tab-content-activity ul li .activity-meta{
+	position: relative;
+}
+
+.activity-tab .tab-content-activity ul li .activity-meta img{
+	position: absolute;
+    top: 12px;
+    left: 0;
+	width: 38px;
+	height: 38px;
+	border-radius: 2px;
+}
+
+.activity-tab .tab-content-activity ul li .activity-meta h4{
+	padding-left: 52px;
+	padding-top: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.1;
+}
+
+.activity-tab .tab-content-activity ul li .activity-meta h5{
+	padding-left: 52px;
+	margin-bottom: 16px;
+	margin-top: 6px;
+    font-size: 14px;
+    line-height: 1.2;
+}
+
+.activity-tab .tab-content-activity ul li .activity-meta h6{
+	margin-bottom: 5px;
+	font-size: 14px;
+	color: #8590a6;
+}
+
+.activity-tab .tab-content-activity ul li .activity-content{
+	padding-top: 3px;
+	font-size: 13px;
+    line-height: 27px;
+    color: #404040;
+}
+
+.activity-tab .tab-content-activity ul li .activity-content a{
+	margin-bottom: 5px;
+	font-size: 14px;
+	color: #8590a6;
+}
+
+.activity-tab .tab-content-activity ul li .activity-content a:hover{
+	text-decoration: underline;
+}
+
+
+/*可对回答进行的操作*/
+.activity-tab .tab-content-activity ul li .activity-action{
+	padding: 12px 0;
+	overflow: hidden;
+}
+
+
+.activity-tab .tab-content-activity ul li .activity-action .other-action{
+	float: left;
+	position: relative;
+	top: 6px;
+	left: 0;
+}
+
+.activity-tab .tab-content-activity ul li .activity-action .other-action button{
+	margin-left: 24px;
+	font-size: 14px;
+	background-color: white;
+	color: #7a8599;
+}
+
+.activity-tab .tab-content-activity ul li .activity-action .other-action button i{
+	position: relative;
+	top: 2px;
+}
+
+
+
+
+
+
+
+/*回答的面板*/
+
+.answer-tab{
+	padding: 0 24px;
+}
+
+.answer-tab .tab-title{
+	position: relative;
+    padding: 20px 0 30px;
+	border-bottom: 1px solid #f0f2f7;
+}
+
+.answer-tab .tab-title h3{
+	float: left;
+	font-size: 15px;
+	font-weight: 700;
+	color: #404040;
+}
+
+
+/*排序按钮*/
+.answer-tab .tab-title .sort{
+	position: absolute;
+	right: 20px;
+    top: 18px;
+	z-index: 10;
+}
+
+.answer-tab .tab-title .sort a{
+	font-size: 13px;
+	color: #404040;
+}
+
+.answer-tab .tab-title .sort a.sort-button{
+	position: relative;
+    left: 5px;
+	margin-right: 6px;
+}
+
+.answer-tab .tab-title .sort ul li a{
+	display: block;
+	height: 28px;
+	line-height: 28px;
+}
+
+.answer-tab .tab-title .sort ul li a:hover{
+	background-color: #eee;
+}
+
+.sprite-sort{
+	display: inline-block;
+	background-image: url(../image/sprites-1.9.2.4c54885a.png);
+    background-position: -191px -229px;
+    width: 14px;
+    height: 14px;
+    vertical-align: -2px;
+}
+
+
+.answer-tab .answer-list ul li{
+	position: relative;
+	padding: 20px 0 10px;
+	border-bottom: 1px solid #f0f2f7;
+}
+
+.answer-tab .answer-list ul li .answer-title{
+	font-size: 20px;
+	line-height: 26px;
+	font-weight: 500;
+	color: #404040;
+}
+.answer-tab .answer-list ul li .answer-title a{
+	font-size: 20px;
+	line-height: 26px;
+	font-weight: 500;
+	color: #404040;
+}
+
+.answer-tab .answer-list ul li .answer-meta{
+	position: relative;
+}
+
+.answer-tab .answer-list ul li .answer-meta img{
+	position: absolute;
+	top: 12px;
+    left: 0;
+	width: 38px;
+	height: 38px;
+	border-radius: 2px;
+}
+
+.answer-tab .answer-list ul li .answer-meta h4{
+	padding-left: 52px;
+	padding-top: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.1;
+}
+
+.answer-tab .answer-list ul li .answer-meta h5{
+	padding-left: 52px;
+	margin-bottom: 16px;
+	margin-top: 26px;
+    font-size: 14px;
+    line-height: 1.2;
+}
+
+.answer-tab .answer-list ul li .answer-meta h6{
+	margin-bottom: 5px;
+	font-size: 14px;
+	color: #8590a6;
+}
+
+.answer-tab .answer-list ul li .answer-content{
+	padding-top: 3px;
+	font-size: 13px;
+    line-height: 27px;
+    color: #404040;
+}
+
+.answer-tab .answer-list ul li .answer-content a{
+	margin-bottom: 5px;
+	font-size: 14px;
+	color: #8590a6;
+}
+
+.answer-tab .answer-list ul li .answer-content a:hover{
+	text-decoration: underline;
+}
+
+
+/*可对回答进行的操作*/
+.answer-tab .answer-list ul li .answer-action{
+	padding: 12px 0;
+	overflow: hidden;
+}
+
+
+.answer-tab .answer-list ul li .answer-action .other-action{
+	float: left;
+	position: relative;
+	top: 6px;
+	left: 0;
+}
+
+.answer-tab .answer-list ul li .answer-action .other-action a{
+	margin-left: 24px;
+	font-size: 14px;
+	background-color: white;
+	color: #7a8599;
+}
+
+.answer-tab .answer-list ul li .answer-action .other-action a i{
+	position: relative;
+	top: 2px;
+}
+
+.sprite-comment{
+	display: inline-block;
+	background-image: url(../image/sprite3.png);
+	background-repeat: no-repeat;
+	background-position: -13px -17px;
+	width: 12px;
+	height: 13px;
+}
+
+.sprite-share{
+	display: inline-block;
+	background-image: url(../image/sprite3.png);
+	background-repeat: no-repeat;
+	background-position: -109px -17px;
+	width: 13px;
+	height: 12px;
+}
+
+.sprite-collect{
+	display: inline-block;
+	background-image: url(../image/sprite3.png);
+	background-repeat: no-repeat;
+	background-position: -180px -17px;
+	width: 13px;
+	height: 13px;
+}
+
+/*新点赞按钮*/
+
+
+
+.votebar{
+	float: left;
+}
+
+
+
+.votebar button{
+	height: 34px;
+	padding: 0 10px;
+	background-color: #ebf3fb;
+	color: #2d84cc;
+	font-size: 14px;
+}
+
+
+
+.votebar .vote-up i{
+	display: inline-block;
+	width: 0;
+	height: 0;
+	border: 6px solid #ebf3fb;
+	border-bottom: 6px solid #2d84cc;
+	margin-right: 8px;
+
+	position: relative;
+	bottom: 2px;
+	left: 0;
+}
+
+.votebar .vote-down i{
+	display: inline-block;
+	width: 0;
+	height: 0;
+	border: 6px solid #ebf3fb;
+	border-top: 6px solid #2d84cc;
+
+	position: relative;
+	top: 4px;
+    left: 0;
+}
+

@@ -1,0 +1,47 @@
+﻿<script type="text/javascript" src="${base}/js/jquery-1.10.2.min.js"></script>
+<script>
+	$(function(){
+		$(".profile-link").attr("href","${base}/profile/"+localStorage.userId);
+		$(".profile-follow-question-link").attr("href","${base}/profileFollowQuestion/"+localStorage.userId);
+		$(".profile-question-link").attr("href","${base}/profileQuestion/"+localStorage.userId);
+		
+		$("#profile-avatar").attr("src",localStorage.avatarUrl);
+		$("#profile-username").text(localStorage.username);
+	});
+</script>
+
+<#assign base = request.contextPath/>
+<base id="baseUrl" href="${base}/"/>
+<div class="nav">
+	<div class="nav-wrap">
+		<a href="index" class="logo">问答</a>
+		<div class="search-area">
+			<form action="${base}/listTopicByTopicName" action="post">
+				<input name="topicName" type="text" class="search-input" placeholder="搜索你感兴趣的内容...">
+				<button type="submit" class="search-button"><i class="sprite-search"></i></button>
+			</form>
+		</div>
+		<div class="top-nav">
+			<ul>
+				<li><a href="${base}/index">首页</a></li>
+				<li><a href="${base}/topics">话题</a></li>
+				<li><a href="${base}/explore">发现</a></li>
+				<li><a href="${base}/message">消息</a></li>
+			</ul>
+			<!-- <div class="notice"></div> -->
+		</div>
+		<div class="nav-profile">
+			<a id="profile-link" href="profile" class="profile-link">
+				<img id="profile-avatar" src="">
+				<span id="profile-username"></span>
+			</a>
+			<ul class="nav-dropdown">
+				<li><a href="${base}/profile" class="profile-link"><i class="sprite-nav-profile"></i>&nbsp;&nbsp;&nbsp;我的主页</a></li>
+				<!-- <li><a href="${base}/letter"><i class="sprite-nav-letter"></i>&nbsp;&nbsp;&nbsp;私信</a></li> -->
+				<li><a href="${base}/setting"><i class="sprite-nav-setting"></i>&nbsp;&nbsp;&nbsp;设置</a></li>
+				<li><a href="${base}/logout"><i class="sprite-nav-logout"></i>&nbsp;&nbsp;&nbsp;退出</a></li>
+			</ul>
+		</div>
+		<button class="ask-question open-mask">提问</button>
+	</div>
+</div>

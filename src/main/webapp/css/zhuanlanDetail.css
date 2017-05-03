@@ -1,0 +1,123 @@
+﻿body{
+    height: 1000px;
+}
+
+nav{
+    height: 45px;
+    padding: 0 15px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 30px;
+    line-height: 45px;
+}
+
+nav span:first-child{
+    float: left;
+    font-size: 24px;
+    color: #666;
+}
+
+nav span:nth-child(2){
+    float: right;
+    position: relative;
+    top: 7px;
+    right: 10px;
+}
+
+.main .zhuanlan-info{
+    width: 660px;
+    margin: 0 auto 25px;
+    text-align: center;
+}
+
+.main .zhuanlan-info img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    margin-bottom: 22px;
+}
+
+.main .zhuanlan-info h3{
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 16px;
+}
+
+.main .zhuanlan-info .follow-count a{
+    font-size: 14px;
+    color: gray;
+}
+
+.main .article{
+    width: 660px;
+    margin: 0 auto;
+    padding: 20px 0;
+    border-top: 1px solid #eee;
+}
+
+.main .article h4{
+    font-size: 16px;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.main .article-list li{
+    border-bottom: 1px solid #eee;
+    padding: 15px 0;
+}
+
+.main .article-list .title{
+    font-size: 18px;
+    line-height: 1.7;
+    color: #222;
+    font-weight: bold;
+}
+
+.main .article-list .content{
+    font-size: 16px;
+    line-height: 1.7;
+    color: #666;
+}
+
+.main .article-list .content a{
+    color: #666;
+}
+
+.main .article-list .meta{
+    margin-top: 5px;
+    color: gray;
+    font-size: 14px;
+}
+
+.main .article-list .meta span:nth-child(2){
+    float: right;
+}
+
+.main .article-list .meta span:nth-child(3){
+    float: right;
+    margin-right: 10px;
+}
+
+.main .article .zhuanlanBottom{
+    width: 340px;
+    margin: 30px auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

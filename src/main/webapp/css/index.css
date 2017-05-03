@@ -1,0 +1,469 @@
+﻿
+/*主体部分*/
+.main{
+	width: 960px;
+	margin: 0 auto;
+}
+
+/*内容部分*/
+.content{
+	float: left;
+	width: 632px;
+}
+
+/*主页提问回答入口*/
+.home-entry{
+	width: 100%;
+	height: 50px;
+	margin-bottom: 30px;
+}
+
+.home-entry-avatar{
+	float: left;
+    width: 38px;
+}
+
+.home-entry-avatar img{
+    width: 38px;
+    height: 38px;
+}
+
+.home-entry-box{
+	margin-left: 58px;
+    height: 48px;
+    line-height: 48px;
+    background: #fafafa;
+    border: 1px solid #f0f0f0;
+    border-radius: 4px;
+    position: relative;
+}
+
+ul.home-entry-list{
+	position: relative;
+	padding-left: 30px;
+}
+
+ul.home-entry-list li{
+	float: left;
+    padding: 0 45px 0 27px;
+    font-size: 14px;
+}
+
+ul.home-entry-list li a{
+	color: #6c829f;
+}
+
+ul.home-entry-list li a:hover{
+	color: #235699;
+}
+
+.sprite-ask{
+	position: absolute;
+	top: 13px;
+    left: 35px;
+	display: inline-block;
+	background-image: url(../image/sprite2.png);
+	background-position:-148px -30px;
+	width:24px;
+	height:24px
+}
+
+.sprite-answer{
+	position: absolute;
+	top: 13px;
+    left: 136px;
+	display: inline-block;
+	background-image: url(../image/sprite2.png);
+	background-position:-96px -30px;
+	width:24px;
+	height:24px
+}
+
+.sprite-write{
+	position: absolute;
+	top: 13px;
+    left: 236px;
+	display: inline-block;
+	background-image: url(../image/sprite2.png);
+	background-position:-122px -56px;
+	width:24px;
+	height:24px
+}
+
+.home-entry-draft{
+	float: right;
+    margin-right: 20px;
+    line-height: 49px;
+}
+
+.home-entry-draft a{
+	float: right;
+    line-height: 49px;
+    color: #999;
+    font-size: 13px;
+}
+
+/*头部标题部分*/
+.list-title{
+	width: 100%;
+	height: 24px;
+	margin-bottom: 10px;
+}
+
+.list-title .title-text{
+	float: left;
+	color: #666;
+    font-weight: 700;
+}
+
+.list-title .setting a{
+	float: right;
+	color: #698ebf;
+	font-weight: 400;
+	font-size: 13px;
+}
+
+
+
+/*feed流部分*/
+.feed-list{
+	border-top: 1px rgb(204, 204, 204) solid;
+	padding-top: 5px;
+}
+
+.feed-item{
+	position: relative;
+	margin-top: 14px;
+	padding: 8px 0 8px;
+	border-bottom: 1px solid rgb(238, 238, 238);
+}
+
+.feed-item .avatar{
+	position: absolute;
+	top: 8px;
+}
+
+.feed-item .avatar img{
+	width: 38px;
+	height: 38px;
+}
+
+.feed-item .vote-count{
+	position: absolute;
+	top: 50px;
+	width: 38px;
+	height: 24px;
+}
+
+.feed-item .vote-count a{
+	display: block;
+    color: #698ebf;
+    height: 24px;
+    line-height: 24px;
+    width: 38px;
+    border-radius: 3px;
+    border: 0;
+    cursor: pointer;
+    background: #eff6fa;
+    font-weight: 500;
+    text-align: center;
+    text-decoration: none;
+}
+
+.feed-item .vote-count a:hover{
+	background-color: #259;
+	color: white;
+}
+
+.like-clicked{
+	background-color: #259;
+	color: white;
+}
+
+.feed-item .feed-body{
+	/*position: absolute;
+	left: 48px;
+	top: 2px;*/
+	margin-left: 48px;
+}
+
+.feed-source, .feed-source a{
+	color: #999;
+	font-size: 13px;
+    line-height: 1.7;
+}
+
+.feed-source a:hover{
+	text-decoration: underline;
+	color: #259;
+}
+
+.feed-title a{
+	font-weight: 700;
+    font-size: 14px;
+    color: #259;
+    line-height: 1.7;
+}
+
+.feed-user-info a,.feed-user-info .comma{
+	font-size: 13px;
+	line-height: 1.7;
+	font-weight: 700;
+	color: #000;
+}
+
+.feed-user-info span{
+	font-size: 13px;
+	line-height: 1.7;
+	color: #999;
+}
+
+
+.feed-user-info a:hover{
+	text-decoration: underline;
+}
+
+.feed-content{
+    font-size: 13px;
+    line-height: 1.7;
+    color: #222;
+}
+
+
+.feed-content a{
+	display: inline-block;
+    padding: 0 3px;
+    border-radius: 2px;
+    font-size: .9em;
+    color: #259
+}
+
+.feed-meta{
+	padding: 8px 0;
+
+}
+
+.feed-meta a{
+	font-size: 13px;
+	color: #999;
+	margin-right: 7px;
+}
+
+.feed-meta a:hover{
+	color: #259;
+	text-decoration: underline;
+}
+
+
+
+
+
+/*右侧工具栏部分*/
+.sidebar{
+	float: right;
+	width: 270px;
+	height: 600px;
+	margin-left: 58px;
+	/*background-color: yellow;*/
+}
+
+/*工具类顶部部分*/
+.sidebar-top{
+	padding-bottom: 16px;
+	border-bottom: 1px solid #eee;
+}
+
+.sidebar-top ul li{
+	width: 270px;
+	height: 28px;
+	padding-left: 10px;
+	margin-bottom: 5px;
+}
+
+.sidebar-top ul li a{
+	display: block;
+	width: 270px;
+	height: 28px;
+	line-height: 28px;
+	color: #666;
+	font-size: 13px;
+}
+
+.sidebar-top ul li a:hover{
+    color: #259;
+    background: #eff6fa;
+    border-radius: 3px;
+}
+
+.sprite-collection{
+	display: inline-block;
+	background-image: url(../image/sprites-1.9.2.4c54885a.png);
+	background-position: -167px -4px;
+	margin-right: 2px;
+    width: 14px;
+    height: 14px;
+    vertical-align: -2px;
+}
+
+.sprite-question{
+	display: inline-block;
+	background-image: url(../image/sprites-1.9.2.4c54885a.png);
+	background-position: -183px -4px;
+	margin-right: 2px;
+    width: 14px;
+    height: 14px;
+    vertical-align: -2px;
+}
+
+.sprite-invite{
+	display: inline-block;
+	background-image: url(../image/sprites-1.9.2.4c54885a.png);
+	background-position: -200px -4px;
+	margin-right: 2px;
+    width: 14px;
+    height: 14px;
+    vertical-align: -2px;
+}
+
+/*工具栏专栏部分*/
+.sidebar-zhuanlan{
+	padding: 15px 0 15px 10px;
+}
+
+.sidebar-zhuanlan h2{
+	margin: 16px 0 0;
+	font-weight: 700;
+    font-size: 14px;
+    color: #000;
+}
+
+.sidebar-zhuanlan ul li{
+	padding: 10px 0 10px;
+	border-bottom: 1px solid #eee;
+    line-height: 34px;
+    color: #666;
+    font-size: 13px;
+}
+
+.sidebar-zhuanlan ul li a{
+	display: block;
+    line-height: 34px;
+    color: #666;
+}
+
+.sidebar-zhuanlan ul li a:hover{
+    color: #259;
+    background: #eff6fa;
+    border-radius: 3px;
+}
+
+.sprite-zhuanlan{
+	display: inline-block;
+	background-image: url(../image/sprites.auto.a740548f.png);
+	margin-right: 5px;
+	background-position: 0 0;
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
+}
+
+/*footer部分*/
+
+.footer{
+	padding-top: 10px;
+	padding-left: 10px;
+}
+
+.footer, .footer a{
+	/*display: inline-block;*/
+	line-height: 24px;
+	color: #666;
+	font-size: 13px;
+}
+
+.footer a:hover{
+	text-decoration: underline;
+}
+/*遮罩层处理*/
+
+.mask{
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,.5);
+    zoom:1001;
+}
+
+.upon-mask{
+    overflow: hidden;
+    display: none;
+    position: fixed;
+    border-radius: 8px;
+    width: 550px;
+    height: 420px;
+    background-color: #fff;
+    top: 50%;
+    left: 50%;
+    margin-top: -210px;
+    margin-left: -275px;
+    box-shadow: 0 0 80px 0 rgba(0,0,0,.4);
+}
+
+.upon-mask h3{
+    border-radius: 8px 8px 0 0;
+    padding: 10px 20px;
+    line-height: 14px;
+    background: linear-gradient(to bottom,#1D7FE2,#0865C2);
+}
+
+.upon-mask h3 span:first-child{
+    color: #fff;
+    text-shadow: 0 1px 1px rgba(0,0,0,.4);
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.upon-mask h3 span.close-mask{
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    color: blue;
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+    border-radius: 8px;
+    background-color: white;
+    text-align: center;
+    line-height: 17px;
+}
+
+.upon-mask form{
+    padding: 10px 20px;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+
+
+.upon-mask input{
+    width: 489px;
+    padding: 8px 10px;
+    font-size: 13px;
+    line-height: 15px;
+    box-shadow: 0 1px 1px rgba(0,0,0,.1) inset;
+    border-radius: 3px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #222;
+    margin: 10px 0;
+}
+
+.upon-mask div{
+    margin-top: 5px;
+}
+

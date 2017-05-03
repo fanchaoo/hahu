@@ -1,0 +1,218 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>注册与登录</title>
+	<link rel="stylesheet" type="text/css" href="${base}/css/base.css">
+	<link rel="stylesheet" type="text/css" href="${base}/css/login.css">
+	
+	<style>
+		form{
+			position: relative;
+		}
+		#regi-username-error{
+			position: absolute;
+			top: 13px;
+			right: 6px;
+			font-size: 14px;
+			color: #c33;
+		}
+		
+		#regi-email-error{
+		    position: absolute;
+		    top: 61px;
+		    right: 6px;
+		    font-size: 14px;
+		    color: #c33;
+		}
+		
+		#regi-password-error{
+		    position: absolute;
+		    top: 111px;
+		    right: 6px;
+		    font-size: 14px;
+		    color: #c33;
+		}
+		#login-email-error{
+			position: absolute;
+			top: 13px;
+			right: 6px;
+			font-size: 14px;
+			color: #c33;
+		}
+		
+		#login-password-error{
+		    position: absolute;
+		    top: 61px;
+		    right: 6px;
+		    font-size: 14px;
+		    color: #c33;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="canvas"></canvas>
+	<#assign base = request.contextPath/>
+	<base id="baseUrl" href="${base}+"/"/>
+	<div class="wrap" style="">
+		<header>
+			<h1>问答</h1>
+			<p>与世界分享你的知识、经验和见解</p>
+		</header>
+
+		<section>
+			<ul>
+				<li id="registerHeader">注册</li>
+				<li id="loginHeader" class="active-header">登录</li>
+			</ul>
+			<div style="display: none;">
+				<form id="registerForm">
+					<div class="inputs">
+                        <input type="text" name="username" id="registerInputUsername" placeholder="姓名">
+                        
+						<input type="text" name="email" id="registerInputEmail" placeholder="邮箱">
+						
+						<input type="password" name="password" id="registerInputPassword" placeholder="密码（不少于6位）">
+						<span id="regi-username-error"></span>
+						<span id="regi-email-error"></span>
+                        <span id="regi-password-error"></span>
+					</div>
+
+				</form>
+                <button id="registerButton" type="button">注册</button>
+			</div>
+			<div>
+				<form id="loginForm">
+					<div class="inputs">
+						<input type="text" name="email" id="loginInputEmail" placeholder="邮箱">
+						
+						<input type="password" name="password" id="loginInputPassword" placeholder="密码">
+						<span id="login-email-error"></span>
+						<span id="login-password-error"></span>
+					</div>
+					<button id="loginButton" type="button">登录</button>
+				</form>
+			</div>
+		</section>
+	</div>
+	
+
+<script type="text/javascript" src="${base}/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="${base}/js/login.js"></script>
+<script>
+	$(function(){
+	
+		/* hash判断 */
+		var urlHash = window.location.hash;
+		if(urlHash=="#login"){
+			$("#loginHeader").click();
+		}else if(urlHash=="#register"){
+			$("#registerHeader").click();
+		}else if(urlHash=="#activateSuccess"){
+			alert("您已经激活成功，现在可以登录了~");
+		}
+	
+		/* 注册处理 */
+		var registerButton = $("#registerButton");
+        var registerForm = $("#registerForm");
+        var registerInputUsername = $("#registerInputUsername");
+        var registerInputEmail = $("#registerInputEmail");
+        var registerInputPassword = $("#registerInputPassword");
+
+        /*	注册校验*/
+		registerInputUsername.blur(function() {
+		    var value = $(this).val();
+		    if (value.length()<1 || value.length()>10) {
+		        $("#regi-username-error").text("用户名长度须在1-10个字符");
+		    }else{
+		        $("#regi-username-error").text("");
+		    }
+		});
+		registerInputEmail.blur(function() {
+		    var value = $(this).val();
+		    if (!/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/.test(value)) {
+		        $("#regi-email-error").text("请输入正确的邮箱");
+		    }else{
+		        $("#regi-email-error").text("");
+		    }
+		});
+		registerInputPassword.blur(function() {
+		    var value = $(this).val();
+		    if (!/[a-zA-Z0-9]{6,10}/.test(value)) {
+		        $("#regi-password-error").text("密码长度须在6-20个字符");
+		    }else{
+		        $("#regi-password-error").text("");
+		    }
+		});
+
+		/* 注册处理 */
+        registerButton.on("click",function(){
+            var form = new FormData();
+            form.append("username",registerInputUsername.val());
+            form.append("email",registerInputEmail.val());
+            form.append("password",registerInputPassword.val());
+            $.ajax({
+                url:"${base}/register",
+                type:"post",
+                data:form,
+                processData:false,
+                contentType:false,
+                success:function(response){
+                    if(response.state==0){
+                    	alert(response.message);
+                    	registerInputUsername.val("");
+                    	registerInputEmail.val("");
+                    	registerInputPassword.val("");
+                    	$("#loginHeader").click();
+                    }else{
+                    	$("#regi-username-error").text(response.data["regi-username-error"]);
+                    	$("#regi-email-error").text(response.data["regi-email-error"]);
+                    	$("#regi-password-error").text(response.data["regi-passwor-error"]);
+                    }
+                }
+            });
+        });
+
+		
+		
+		/* 登录 */
+		var loginButton = $("#loginButton");
+        var loginForm = $("#loginForm");
+        var loginInputEmail = $("#loginInputEmail");
+        var loginInputPassword = $("#loginInputPassword");
+		
+		/* 登录处理 */
+        loginButton.on("click",function(){
+            var form = new FormData();
+            form.append("email",loginInputEmail.val());
+            form.append("password",loginInputPassword.val());
+            $.ajax({
+                url:"${base}/login",
+                type:"post",
+                data:form,
+                processData:false,
+                contentType:false,
+                success:function(response){
+                    if(response.state==0){
+                    	localStorage.setItem("userId", response.data.userInfo.userId);
+                    	localStorage.setItem("username", response.data.userInfo.username);
+                    	localStorage.setItem("avatarUrl", response.data.userInfo.avatarUrl);
+                    	localStorage.setItem("simpleDesc", response.data.userInfo.simpleDesc);
+                    	window.location.href="${base}/index";
+                    }else{
+                    	$("#login-password-error").text(response.message);
+                    }
+                }
+            });
+        });
+		
+	});
+</script>
+
+</body>
+</html>
+
+
+
+
+
+

@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>发现</title>
+
+	<link rel="stylesheet" type="text/css" href="${base}/css/wangEditor.css">
+	<link rel="stylesheet" type="text/css" href="${base}/css/base.css">
+	<link rel="stylesheet" type="text/css" href="${base}/css/nav.css">
+    <link rel="stylesheet" type="text/css" href="${base}/css/mask.css">
+	<link rel="stylesheet" type="text/css" href="${base}/css/explore.css">
+</head>
+<body>
+	<#include "nav.html"/>
+	<div class="main">
+		<div class="content">
+			<ul class="head">
+				<li class="active">今日最热</li>
+				<li>本月最热</li>
+			</ul>
+			<div class="divide"></div>
+			<ul class="body">
+				<li class="show">
+					<div id="todayHotList" class="feed-list">
+						<script id="todayHotListTemplate" type="text/html">
+						{{each answerList}}
+						<div class="feed-item">
+							<div class="feed-body">
+								<h2 class="feed-title">
+									<a href="${base}/question/{{$value.question.questionId}}#answer-{{$value.answerId}}">{{$value.question.questionTitle}}</a>
+								</h2>
+								<div class="feed-user-info">
+									<a href="${base}/profile/{{$value.user.userId}}">{{$value.user.username}}</a>
+									<span class="comma">，</span>
+									<span>{{$value.user.simpleDesc}}</span>
+								</div>
+								<div class="feed-content">
+									<%==$value.answerContent%>
+								</div>
+								<div class="feed-meta">
+									<a href="${base}/question/{{$value.question.questionId}}#answer-{{$value.answerId}}"><span class="glyphicon glyphicon-plus"></span>&nbsp;关注问题</a>
+									<a href="${base}/question/{{$value.question.questionId}}#answer-{{$value.answerId}}"><span class="glyphicon glyphicon-leaf"></span>&nbsp;2条评论</a>
+									<div class="hidden-part" style="display: none;">
+										<a href="${base}/question/{{$value.question.questionId}}#answer-{{$value.answerId}}"><span class="glyphicon glyphicon-bookmark"></span>&nbsp;收藏</a>
+									</div>
+								</div>
+							</div>
+							<div class="votebar">
+								<button class="vote-up" clicked="false">{{$value.likedCount}}
+									<i></i>
+								</button>
+							</div>
+						</div>
+						{{/each}}
+						</script>
+					</div>
+				</li>
+				<li class="hide">
+					<div id="monthHotList" class="feed-list">
+						<script id="monthHotListTemplate" type="text/html">
+						{{each answerList}}
+						<div class="feed-item">
+							<div class="feed-body">
+								<h2 class="feed-title">
+									<a href="${base}/question/{{$value.question.questionId}}#answer-{{$value.answerId}}">{{$value.question.questionTitle}}</a>
+								</h2>
+								<div class="feed-user-info">
+									<a href="${base}/profile/{{$value.user.userId}}">{{$value.user.username}}</a>
+									<span class="comma">，</span>
+									<span>{{$value.user.simpleDesc}}</span>
+								</div>
+								<div class="feed-content">
+									<%==$value.answerContent%>
+								</div>
+								<div class="feed-meta">
+									<a href="${base}/question/{{$value.question.questionId}}#answer-{{$value.answerId}}"><span class="glyphicon glyphicon-plus"></span>&nbsp;关注问题</a>
+									<a href="${base}/question/{{$value.question.questionId}}#answer-{{$value.answerId}}"><span class="glyphicon glyphicon-leaf"></span>&nbsp;2条评论</a>
+									<div class="hidden-part" style="display: none;">
+										<a href="${base}/question/{{$value.question.questionId}}#answer-{{$value.answerId}}"><span class="glyphicon glyphicon-bookmark"></span>&nbsp;收藏</a>
+									</div>
+								</div>
+							</div>
+							<div class="votebar">
+								<button class="vote-up" clicked="false">{{$value.likedCount}}
+									<i></i>
+								</button>
+							</div>
+						</div>
+						{{/each}}
+						</script>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="sidebar">
+			<div class="sidebar-top">
+				<ul>
+					<li><a href="${base}/collections"><i class="sprite-collection"></i>我的收藏</a></li>
+					<li><a class="profile-question-link" href=""><i class="sprite-invite"></i>我的提问</a></li>
+					<li><a class="profile-link" href=""><i class="sprite-invite"></i>我回答的问题</a></li>
+					<li><a class="profile-follow-question-link" href=""><i class="sprite-question"></i>我关注的问题</a></li>
+				</ul>
+			</div>
+			
+			<div class="footer">
+				<a href="#">建议反馈</a>
+				<span> • </span>
+				<a href="#">联系我们</a>
+				<div></div>
+				<span>@ 2017 蛤乎</span>
+			</div>
+		</div>
+	</div>
+	<#include "mask.html"/>
+
+
+<script type="text/javascript" src="${base}/js/wangEditor.js"></script>
+<script type="text/javascript" src="${base}/js/template-web.js"></script>
+<script type="text/javascript" src="${base}/js/nav.js"></script>
+<script type="text/javascript" src="${base}/js/mask.js"></script>
+<script type="text/javascript" src="${base}/js/explore.js?uoi"></script>
+
+</body>
+</html>
+

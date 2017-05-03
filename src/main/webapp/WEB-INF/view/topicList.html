@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>话题广场</title>
+
+	<link rel="stylesheet" type="text/css" href="${base}/css/wangEditor.css">
+	<link rel="stylesheet" type="text/css" href="${base}/css/base.css">
+	<link rel="stylesheet" type="text/css" href="${base}/css/nav.css">
+	<link rel="stylesheet" type="text/css" href="${base}/css/mask.css">
+	<link rel="stylesheet" type="text/css" href="${base}/css/topics.css">
+	<script type="text/javascript" src="${base}/js/template-web.js"></script>
+</head>
+<body>
+	<#include "nav.html"/>
+	<div class="main">
+		<div class="content">
+			<div class="sidebar-top">
+				<h3>搜索结果</h3>
+				<ul>
+					<#list topicList as topic>
+					<li>
+						<div class="topic-info">
+							<img src="${topic.topicImage}">
+							<div class="topic-name">
+								<a href="${base}/topicDetail/${topic.topicId}">${topic.topicName}</a>
+								<div></div>
+								<span>${topic.followedCount}人关注</span>
+							</div>
+						</div>
+					</li>
+					</#list>
+				</ul>
+			</div>
+			
+		</div>
+		
+	</div>
+
+	<#include "mask.html"/>
+
+
+<script type="text/javascript" src="${base}/js/nav.js"></script>
+<script type="text/javascript" src="${base}/js/wangEditor.js"></script>
+<script type="text/javascript" src="${base}/js/mask.js"></script>
+<script type="text/javascript" src="${base}/js/topics.js"></script>
+<script>
+$(function(){
+	var rootTopics = $("#root-topic li a");
+	rootTopics.each(function(){
+		var that = $(this);
+		var formData = new FormData();
+		formData.append("parentTopicId",$(this).attr("data-id"));
+		$(this).on("click",function(event){
+			rootTopics.each(function(){
+				$(this).removeClass("active");
+			});
+			that.addClass("active");
+			event.preventDefault();
+			$.ajax({
+                url:"${base}/listTopicByParentTopicId",
+                type:"post",
+                data:formData,
+                processData:false,
+                contentType:false,
+                success:function(response){
+                    if(response.state==0){
+                    	var html = template("sonTopicList", response.data);
+                    	$("#sonTopic").html(html);
+                    }else{
+                    }
+                }
+            });
+		});
+	});
+	rootTopics.eq(0).click();
+	
+});
+
+
+</script>
+</body>
+</html>

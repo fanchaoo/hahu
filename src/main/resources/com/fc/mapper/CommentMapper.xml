@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fc.mapper.CommentMapper">
+
+	<select id="listQuestionCommentByQuestionId" resultType="com.fc.model.QuestionComment">
+		select question_comment_id,question_comment_content,liked_count,create_time,at_user_id,at_user_name,question_id,user_id
+		from question_comment
+		where question_id = #{questionId}
+	</select>
+	
+	<select id="listAnswerCommentByAnswerId" resultType="com.fc.model.AnswerComment">
+		select answer_comment_id,answer_comment_content,liked_count,create_time,at_user_id,at_user_name,answer_id,user_id
+		from answer_comment
+		where answer_id = #{answerId}
+	</select>
+	
+	<insert id="insertQuestionComment">
+        <selectKey resultType="int" order="AFTER" keyProperty="questionCommentId">
+            select last_insert_id() as questionCommentId
+        </selectKey>
+        insert into question_comment(question_comment_id,question_comment_content,create_time,question_id,user_id)
+        values(#{questionCommentId},#{questionCommentContent},#{createTime},#{questionId},#{userId})
+    </insert>
+    
+	<insert id="insertQuestionCommentReply">
+        <selectKey resultType="int" order="AFTER" keyProperty="questionCommentId">
+            select last_insert_id() as questionCommentId
+        </selectKey>
+        insert into question_comment(question_comment_id,question_comment_content,create_time,question_id,user_id,at_user_id,at_user_name)
+        values(#{questionCommentId},#{questionCommentContent},#{createTime},#{questionId},#{userId},#{atUserId},#{atUserName})
+    </insert>
+	
+	<insert id="insertAnswerComment">
+        <selectKey resultType="int" order="AFTER" keyProperty="answerCommentId">
+            select last_insert_id() as answerCommentId
+        </selectKey>
+        insert into answer_comment(answer_comment_id,answer_comment_content,create_time,answer_id,user_id)
+        values(#{answerCommentId},#{answerCommentContent},#{createTime},#{answerId},#{userId})
+    </insert>
+    
+    	<insert id="insertAnswerCommentReply">
+        <selectKey resultType="int" order="AFTER" keyProperty="answerCommentId">
+            select last_insert_id() as answerCommentId
+        </selectKey>
+        insert into answer_comment(answer_comment_id,answer_comment_content,create_time,answer_id,user_id,at_user_id,at_user_name)
+        values(#{answerCommentId},#{answerCommentContent},#{createTime},#{answerId},#{userId},#{atUserId},#{atUserName})
+    </insert>
+    
+    <select id="selectAnswerCommentCountByAnswerId" resultType="int">
+    	select count(*) from answer_comment
+    	where answer_id = #{answerId}
+    </select>
+    
+</mapper>

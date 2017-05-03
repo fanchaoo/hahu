@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fc.mapper.CollectionMapper">
+
+    <resultMap type="com.fc.model.User" id="userMap">
+        <id column="user_id" property="userId"></id>
+        <result column="username" property="username"></result>
+        <result column="avatar_url" property="avatarUrl"></result>
+        <result column="simple_desc" property="simpleDesc"></result>
+    </resultMap>
+    
+	<resultMap type="com.fc.model.Collection" id="collectionMap">
+        <id column="collection_id" property="collectionId"/>
+        <result column="collection_name" property="collectionName"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="create_time" property="createTime"/>
+
+        <association property="user" javaType="com.fc.model.User" resultMap="userMap" />
+    </resultMap>
+
+	<insert id="insertCollection">
+		insert into collection(collection_name,create_time,update_time,user_id)
+		values(#{collectionName},#{createTime},#{updateTime},#{userId})
+	</insert>
+	
+	<select id="listCreatingCollectionByUserId" resultType="com.fc.model.Collection">
+		select collection_id,collection_name,create_time,update_time,followed_count
+		from collection
+		where user_id = #{userId}
+	</select>
+	
+	<select id="selectCollectionByCollectionId" resultMap="collectionMap">
+		select c.collection_id,c.collection_name,c.create_time,c.update_time,
+		u.user_id,u.username,u.avatar_url,u.simple_desc
+		from collection c join user u on c.user_id = u.user_id
+		where collection_id = #{collectionId}
+	</select>
+	
+	<select id="selectUserIdByCollectionId" resultType="int">
+		select user_id from collection
+		where collection_id = #{collectionId}
+	</select>
+	
+	<select id="listCollectionByCollectionId" resultType="com.fc.model.Collection">
+		select collection_id,collection_name,create_time,update_time,followed_count
+		from collection
+		<where>
+			collection_id in
+			<foreach collection="list" item="item" index="index" open="("
+				separator="," close=")">
+				#{item}
+			</foreach>
+		</where>
+	</select>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</mapper>

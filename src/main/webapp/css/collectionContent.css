@@ -1,0 +1,382 @@
+﻿
+/*主体部分*/
+.main{
+	width: 960px;
+	margin: 0 auto;
+}
+
+/*内容部分*/
+.content{
+	float: left;
+	width: 632px;
+}
+
+.sprite-ask{
+	position: absolute;
+	top: 13px;
+    left: 35px;
+	display: inline-block;
+	background-image: url(../image/sprite2.png);
+	background-position:-148px -30px;
+	width:24px;
+	height:24px
+}
+
+.sprite-answer{
+	position: absolute;
+	top: 13px;
+    left: 136px;
+	display: inline-block;
+	background-image: url(../image/sprite2.png);
+	background-position:-96px -30px;
+	width:24px;
+	height:24px
+}
+
+.sprite-write{
+	position: absolute;
+	top: 13px;
+    left: 236px;
+	display: inline-block;
+	background-image: url(../image/sprite2.png);
+	background-position:-122px -56px;
+	width:24px;
+	height:24px
+}
+
+
+/*头部标题部分*/
+.list-title{
+	width: 100%;
+	height: 24px;
+	margin-bottom: 10px;
+}
+
+.list-title .title-text{
+	float: left;
+	color: #222;
+    font-weight: 700;
+}
+
+.list-title .setting a{
+	float: right;
+	color: #698ebf;
+	font-weight: 400;
+	font-size: 13px;
+}
+
+
+
+/*feed流部分*/
+.feed-list{
+	border-top: 1px rgb(204, 204, 204) solid;
+	padding-top: 5px;
+}
+
+.feed-item{
+	position: relative;
+	margin-top: 14px;
+	padding: 8px 0 8px;
+	border-bottom: 1px solid rgb(238, 238, 238);
+}
+
+.feed-item .avatar{
+	position: absolute;
+	top: 8px;
+}
+
+.feed-item .avatar img{
+	width: 38px;
+	height: 38px;
+}
+
+.feed-item .vote-count{
+	position: absolute;
+	top: 50px;
+	width: 38px;
+	height: 24px;
+}
+
+.feed-item .vote-count a{
+	display: block;
+    color: #698ebf;
+    height: 24px;
+    line-height: 24px;
+    width: 38px;
+    border-radius: 3px;
+    border: 0;
+    cursor: pointer;
+    background: #eff6fa;
+    font-weight: 500;
+    text-align: center;
+    text-decoration: none;
+}
+
+.feed-item .vote-count a:hover{
+	background-color: #259;
+	color: white;
+}
+
+.feed-item .feed-body{
+	/*position: absolute;
+	left: 48px;
+	top: 2px;*/
+	margin-left: 48px;
+}
+
+.feed-source, .feed-source a{
+	color: #999;
+	font-size: 13px;
+    line-height: 1.7;
+}
+
+.feed-source a:hover{
+	text-decoration: underline;
+	color: #259;
+}
+
+.feed-title a{
+	font-weight: 700;
+    font-size: 14px;
+    color: #259;
+    line-height: 1.7;
+}
+
+.feed-user-info a,.feed-user-info .comma{
+	font-size: 13px;
+	line-height: 1.7;
+	font-weight: 700;
+	color: #000;
+}
+
+.feed-user-info span{
+	font-size: 13px;
+	line-height: 1.7;
+	color: #999;
+}
+
+
+.feed-user-info a:hover{
+	text-decoration: underline;
+}
+
+.feed-content{
+    font-size: 13px;
+    line-height: 1.7;
+    color: #222;
+}
+
+
+.feed-content a{
+	display: inline-block;
+    padding: 0 3px;
+    border-radius: 2px;
+    font-size: .9em;
+    color: #259
+}
+
+.feed-meta{
+	padding: 8px 0;
+
+}
+
+.feed-meta a{
+	font-size: 13px;
+	color: #999;
+	margin-right: 7px;
+}
+
+.feed-meta a:hover{
+	color: #259;
+	text-decoration: underline;
+}
+
+
+
+
+
+/*右侧工具栏部分*/
+.sidebar{
+	float: right;
+	width: 270px;
+	height: 600px;
+	margin-left: 58px;
+	font-size: 13px;
+	line-height: 1.7;
+}
+
+/*工具类顶部部分*/
+.sidebar-top{
+	padding-bottom: 16px;
+	border-bottom: 1px solid #eee;
+	margin-bottom: 12px;
+}
+
+.sidebar-top h5{
+	font-size: 14px;
+	font-weight: bold;
+	padding-bottom: 10px;
+}
+
+.sidebar-top section{
+	overflow: hidden;
+}
+
+.sidebar-top section img{
+	float: left;
+	width: 50px;
+	height: 50px;
+	border-radius: 3px;
+	margin-right: 6px;
+}
+
+.sidebar-top section .user-info{
+	float: right;
+	width: 210px;
+	
+}
+
+.sidebar-top section .user-info a{
+	font-weight: bold;
+}
+
+
+
+
+
+/*footer部分*/
+
+.footer{
+	padding-top: 10px;
+}
+
+.footer, .footer a{
+	/*display: inline-block;*/
+	line-height: 24px;
+	color: #666;
+	font-size: 13px;
+}
+
+.footer a:hover{
+	text-decoration: underline;
+}
+/*遮罩层处理*/
+
+.mask{
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,.5);
+    zoom:1001;
+}
+
+.upon-mask{
+    overflow: hidden;
+    display: none;
+    position: fixed;
+    border-radius: 8px;
+    width: 550px;
+    height: 420px;
+    background-color: #fff;
+    top: 50%;
+    left: 50%;
+    margin-top: -210px;
+    margin-left: -275px;
+    box-shadow: 0 0 80px 0 rgba(0,0,0,.4);
+}
+
+.upon-mask h3{
+    border-radius: 8px 8px 0 0;
+    padding: 10px 20px;
+    line-height: 14px;
+    background: linear-gradient(to bottom,#1D7FE2,#0865C2);
+}
+
+.upon-mask h3 span:first-child{
+    color: #fff;
+    text-shadow: 0 1px 1px rgba(0,0,0,.4);
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.upon-mask h3 span.close-mask{
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    color: blue;
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+    border-radius: 8px;
+    background-color: white;
+    text-align: center;
+    line-height: 17px;
+}
+
+.upon-mask form{
+    padding: 10px 20px;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+
+
+.upon-mask input{
+    width: 489px;
+    padding: 8px 10px;
+    font-size: 13px;
+    line-height: 15px;
+    box-shadow: 0 1px 1px rgba(0,0,0,.1) inset;
+    border-radius: 3px;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #222;
+    margin: 10px 0;
+}
+
+.upon-mask div{
+    margin-top: 5px;
+}
+
+
+
+.follow{
+	color: #3e5e00;
+    text-shadow: 0 1px 0 rgba(255,255,255,.3);
+    background: linear-gradient(to bottom,#adda4d,#86b846);
+    border: 1px solid #6d8f29;
+    box-shadow: 0 1px 0 rgba(255,255,255,.5) inset, 0 1px 0 rgba(0,0,0,.2);
+    font-size: 14px;
+    line-height: 1.7;
+    vertical-align: middle;
+    text-align: center;
+    padding: 4px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+    white-space: nowrap;
+    box-sizing: border-box;
+}
+
+.unfollow{
+	color: #666;
+    text-shadow: 0 1px 0 #fff;
+    background: linear-gradient(to bottom,#f8f8f9,#e6e6e8);
+    border: 1px solid #bbb;
+    box-shadow: 0 1px 0 #fff inset, 0 1px 0 rgba(0,0,0,.1);
+    font-size: 14px;
+    line-height: 1.7;
+    text-decoration: none!important;
+    vertical-align: middle;
+    display: inline-block;
+    text-align: center;
+    padding: 4px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+    white-space: nowrap;
+    box-sizing: border-box;
+}

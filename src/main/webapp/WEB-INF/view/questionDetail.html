@@ -1,0 +1,258 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>问题</title>
+
+	<link rel="stylesheet" type="text/css" href="${base}/css/wangEditor.css">
+	<link rel="stylesheet" type="text/css" href="${base}/css/base.css?sads">
+	<link rel="stylesheet" type="text/css" href="${base}/css/nav.css">
+	<link rel="stylesheet" type="text/css" href="${base}/css/mask.css">
+	<link rel="stylesheet" type="text/css" href="${base}/css/questionDetail.css?kk">
+</head>
+<body>
+	<#include "nav.html"/>
+	<div class="main" id="${base}">
+		<div class="content">
+			<div class="question-info">
+				<div class="question-tag">
+					<#list topicMap?keys as key>
+						<a href="${base}/topicDetail/${key}">${topicMap["${key}"]}</a>
+					</#list>
+				</div>
+				<div class="question-title">
+					<a href="question/${question.questionId}" id="questionId" data-id="${question.questionId}">${question.questionTitle}</a>
+				</div>
+				<div class="question-content">
+					${question.questionContent}
+				</div>
+				<div class="question-meta">
+					<a href="#" class="question-reply"><i class="sprite-question-reply"></i>${question.questionCommentList?size} 条评论</a>
+					<!-- <a href="#" class="question-share"><i class="sprite-question-share"></i>分享</a> -->
+					<!-- <a href="#"><span> • </span>邀请回答</a> -->
+				</div>
+				<div class="comment">
+						<ul>
+							<#list question.questionCommentList as comment>
+								<li class="comment-li" id="question-comment-${comment.questionCommentId}">
+									<img src="${comment.user.avatarUrl}">
+									<div class="comment-main">
+										<div class="user-name">
+											<#if comment.atUserId?? >
+												<a href="${base}/profile/${comment.user.userId}">${comment.user.username}</a>
+												<span class="c999">回复</span>
+												<a href="${base}/profile/${comment.atUserId}">${comment.atUserName}</a>
+											<#else>
+												<a href="${base}/profile/${comment.user.userId}">${comment.user.username}</a>
+											</#if>
+											
+										</div>
+										<div class="comment-content">${comment.questionCommentContent}</div>
+										<div class="comment-meta">
+											<span>${comment.createTime?number_to_date}</span>
+											<span><a href="#" class="toggle-reply">回复</a></span>
+											<span class="like-question-comment">
+												<#if comment.likeState=="false">
+												<a href="" question-comment-id="${comment.questionCommentId}">赞</a>
+												<#else>
+												<span>已赞</span>
+												</#if>
+											</span>
+											<span>${comment.likedCount} 赞</span>
+										</div>
+										<div class="add-comment-reply hide">
+											<form class="reply-form">
+												<input type="hidden" name="atUserId" value="${comment.user.userId}">
+												<input type="hidden" name="atUserName" value="${comment.user.username}">
+												<input type="hidden" name="questionId" value="${comment.questionId}">
+												<textarea></textarea>
+												<button type="button" class="reply-button">回复</button>
+											</form>
+										</div>
+									</div>
+								</li>
+							</#list>
+						
+						</ul>
+						<div class="add-comment">
+							<form id="commentQuestionForm">
+								<input type="hidden" name="questionId" value="${question.questionId}">
+								<textarea></textarea>
+								<button id="commentQuestionButton" type="button">评论</button>
+							</form>
+						</div>
+					</div>
+				<div class="answer-count">
+					<div class="count">${answerList?size} 个回答</div>
+					<!-- <div class="sort">
+						<a href="#" class="sort-button">排序方式<i class="sprite-sort"></i></a>
+						<ul style="display: none;">
+							<li><a href="#">&nbsp;默认排序</a></li>
+							<li><a href="#">&nbsp;按时间排序</a></li>
+						</ul>
+					</div> -->
+				</div>
+			</div>
+			<div class="answer-list">
+				<#list answerList as answer>
+				<div class="answer-item" id="answer-${answer.answerId}">
+					<div class="user-info">
+						<a href="${base}/profile/${answer.user.userId}">${answer.user.username}</a>
+						<span class="comma">，</span>
+						<span>${answer.user.simpleDesc}</span>
+						<img src="${answer.user.avatarUrl}">
+					</div>
+					<div class="answer-content">
+						${answer.answerContent}
+					</div>
+					<div class="answer-meta">
+						<a href="#">&nbsp;发布于 ${answer.createTime?number_to_date}</a>
+						<a href="#"><span class="glyphicon glyphicon-leaf"></span>${answer.answerCommentList?size} 条评论</a>
+						<a href="" data-id="${answer.answerId}" class="toCollectAnswer"><span class="glyphicon glyphicon-bookmark"></span>&nbsp;收藏</a>
+					</div>
+					<div class="votebar">
+						<button class="vote-up" clicked="${answer.likeState}" answer-id="${answer.answerId}">${answer.likedCount}
+							<i></i>
+						</button>
+					</div>
+
+					<div class="comment">
+						<ul>
+							<#list answer.answerCommentList as comment>
+								<li class="comment-li" id="answer-comment-${comment.answerCommentId}">
+									<img src="${comment.user.avatarUrl}">
+									<div class="comment-main">
+										<div class="user-name">
+											<#if comment.atUserId?? >
+												<a href="#">${comment.user.username}</a>
+												<span class="c999">回复</span>
+												<a href="#">${comment.atUserName}</a>
+											<#else>
+												<a href="#">${comment.user.username}</a>
+											</#if>
+											
+										</div>
+										<div class="comment-content">${comment.answerCommentContent}</div>
+										<div class="comment-meta">
+											<span>${comment.createTime?number_to_date}</span>
+											<span><a href="#" class="toggle-reply">回复</a></span>
+											<span class="like-answer-comment">
+												<#if comment.likeState=="false">
+												<a href="" answer-comment-id="${comment.answerCommentId}">赞</a>
+												<#else>
+												<span>已赞</span>
+												</#if>
+											</span>
+											<span>${comment.likedCount} 赞</span>
+										</div>
+										<div class="add-comment-reply hide">
+											<form class="reply-answer-form">
+												<input type="hidden" name="atUserId" value="${comment.user.userId}">
+												<input type="hidden" name="atUserName" value="${comment.user.username}">
+												<input type="hidden" name="answerId" value="${comment.answerId}">
+												<textarea></textarea>
+												<button type="button" class="reply-button">回复</button>
+											</form>
+										</div>
+									</div>
+								</li>
+							</#list>
+						
+						</ul>
+						<div class="add-comment">
+							<form class="commentAnswerForm">
+								<input type="hidden" name="answerId" value="${answer.answerId}">
+								<textarea></textarea>
+								<button class="commentAnswerButton" type="button">评论</button>
+							</form>
+						</div>
+					</div>
+				</div>
+				</#list>
+			</div>
+
+			<div class="edit-area">
+				<div class="user-info">
+					<a href="#">${question.user.username}</a>
+					<span class="comma">，</span>
+					<span>${question.user.simpleDesc}</span>
+					<img src="${question.user.avatarUrl}">
+				</div>
+				<div>
+					<form id="answerForm">
+						<textarea name="content" id="answerContent" style="height: 200px;"></textarea>
+					</form>
+				</div>
+				<div class="publish-answer">
+					<!-- <input type="checkbox" name="anonymous" class="anonymous">&nbsp;&nbsp;匿名 -->
+					<button id="answerButton" href="#">发布回答</button>
+				</div>
+			</div>
+		</div>
+		
+		<!-- 右侧边栏 -->
+		<div class="sidebar">
+			<div class="sidebar-top">
+				<button id="unfollowQuestionButton" class="unfollow">取消关注</button>
+				<button id="followQuestionButton" class="follow">关注问题</button>
+				<div class="follower-info">
+					<a href="#" class="follower-count">${question.followedCount}</a> 人关注该问题
+					<div class="follower-avatar">
+						<ul>
+							<#list followedUserList as user>
+							<li><a href="${base}/profile/${user.userId}"><img src="${user.avatarUrl}"></a></li>
+							</#list>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="related-question">
+				<h3>相关问题</h3>
+				<ul>
+					<#list relatedQuestionList as question>
+					<li>
+						<a href="${base}/question/${question.questionId}">${question.questionTitle}</a>
+						<span>${question.answerCount}个回答</span>
+					</li>
+					</#list>
+				</ul>
+			</div>
+			<div class="question-status">
+				<h3>问题状态</h3>
+				<div>被浏览<span> ${question.scanedCount} </span>次，问题创建于<span> ${question.createTime?number_to_date} </span></div>
+			</div>
+		</div>
+	</div>
+
+	<div class="footer">
+		<span>@ 2017 蛤乎</span>
+		<span class="footer-right">
+			<a href="#">建议反馈</a>
+			<span> • </span>
+			<a href="#">举报投诉</a>
+			<span> • </span>
+			<a href="#">联系我们</a>
+			<span> • </span>
+			<a href="#">加入我们</a>
+		</span>
+	</div>
+	<#include "mask.html"/>
+	<#include "maskCollectAnswer.html"/>
+
+
+<script type="text/javascript" src="${base}/js/wangEditor.js"></script>
+<script type="text/javascript" src="${base}/js/template-web.js"></script>
+<script type="text/javascript" src="${base}/js/nav.js"></script>
+<script type="text/javascript" src="${base}/js/mask.js"></script>
+<script type="text/javascript" src="${base}/js/maskCollectAnswer.js"></script>
+<script type="text/javascript" src="${base}/js/questionDetail.js"></script>
+
+
+</body>
+</html>
+
+
+
+
+
+
+

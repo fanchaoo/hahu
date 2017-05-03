@@ -1,0 +1,72 @@
+﻿<style>
+	#collectionAnswerModal{
+		width: 420px;
+		height: 250px;
+	}
+	
+	#collectionAnswerModal button{
+		position: relative;
+    	right: 28px;
+	}
+	
+	#collectionAnswerModal ul.collection-list{
+		width: 365px;
+		padding: 15px 0;
+		margin: 0 auto;
+	}
+	
+	
+	#collectionAnswerModal ul.collection-list li{
+		width: 340px;
+		height: 42px;
+		padding: 8px 12px;
+		border: 1px solid #ddd;
+		margin-bottom: 5px;
+		border-radius: 5px;
+		cursor: pointer;
+		position: relative;
+	}
+	
+	#collectionAnswerModal ul.collection-list li:hover{
+		background-color: #F5F5F5;
+	}
+	
+	#collectionAnswerModal h5{
+		font-size: 13px;
+		line-height: 1.7;
+	}
+	
+	#collectionAnswerModal ul li span{
+		font-size: 12px;
+		line-height: 1.7;
+		color: #999;
+	}
+	
+	.collect-right{
+		width: 24px;
+		height: 24px;
+		background-image: url("image/collectRight.jpg");
+	    position: absolute;
+    	top: 18px;
+    	right: 12px;
+	}
+</style>
+
+
+<div class="upon-mask" id="collectionAnswerModal">
+	<h3>
+		<span>添加到收藏夹</span>
+		<span class="close-mask">×</span>
+	</h3>
+	<ul id="collectionList" class="collection-list">
+		<#list collectionList as collection>
+		<li>
+			<h5 data-id="${collection.collectionId}">${collection.collectionName}</h5>
+			<span>5 条内容</span>
+			<span> • </span>
+			<span>5 人关注</span>
+			<i></i>
+		</li>
+		</#list>
+	</ul>
+</div>

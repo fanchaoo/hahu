@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>设置</title>
+
+	<link rel="stylesheet" type="text/css" href="${base}/css/wangEditor.css">
+	<link rel="stylesheet" type="text/css" href="${base}/css/base.css">
+	<link rel="stylesheet" type="text/css" href="${base}/css/nav.css">
+	<link rel="stylesheet" type="text/css" href="${base}/css/setting.css">
+</head>
+<body>
+	<#include "nav.html"/>
+	<div class="main">
+		<div class="content">
+			<ul class="head">
+				<li class="active">帐号和密码</li>
+			</ul>
+			<div class="divide"></div>
+			<ul class="body">
+				<li class="show">
+					<div>
+						<span>更换邮箱</span>
+						<span style="margin-left: 30px;">1104641801@qq.com <a href="#">修改</a></span>
+					</div>
+					<div>
+						<span>帐号密码</span>
+						<span style="margin-left: 30px;"><a href="#">修改密码</a></span>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<#include "mask.html"/>
+
+	<div class="upon-mask" id="password-modal">
+		<h3>
+			<span>修改密码</span>
+			<span class="close-mask">×</span>
+		</h3>
+		<form>
+			<input type="text" name="title" placeholder="写下你的问题">
+			<div>问题（可选）：</div>
+			<textarea name="content" id="textarea" style="height: 95px;max-height: 1000px;"></textarea>
+			<div>添加话题（以逗号分割多个话题）：</div>
+			<input type="text" name="topics">
+			<button>发布</button>
+		</form>
+	</div>
+
+<script type="text/javascript" src="${base}/js/wangEditor.js"></script>
+<script type="text/javascript" src="${base}/js/nav.js"></script>
+<script type="text/javascript" src="${base}/js/setting.js"></script>
+
+</body>
+</html>
+

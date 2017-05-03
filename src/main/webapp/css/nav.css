@@ -1,0 +1,240 @@
+﻿/*导航条部分*/
+.nav{
+	height: 45px;
+	background: linear-gradient(to bottom,#086ed5,#055db5);
+	border-bottom: 1px solid #044e97;
+	margin-bottom: 25px;
+	margin-top: -18px;
+}
+
+.nav-wrap{
+	width: 960px;
+	height: 45px;
+	margin: 0 auto;
+}
+
+/*logo部分*/
+.logo{
+	float: left;
+	text-decoration: none;
+	font-size: 29px;
+	color: white;
+	line-height: 45px;
+}
+
+
+/*搜索区域部分*/
+.search-area{
+	float: left;
+	position: relative;
+	width: 367px;
+	color: rgb(34, 34, 34);
+	font-size: 13px;
+	line-height: 22.1px;
+	margin: 7px 0 0 12px;
+}
+
+.search-input{
+	width: 305px;
+	padding: 7px 50px 7px 10px;
+	color: #49525c;
+	font-size: 14px;
+	line-height: 17px;
+	background-color: #e1eaf2;
+	border: 1px solid #045bb2;
+	border-radius: 4px;
+	box-shadow: inset 0 1px 3px rgba(0,0,0,.2),0 1px 0 rgba(255,255,255,.1);
+}
+
+.search-input::placeholder{
+	font-size: 15px;
+}
+
+.search-button{
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 40px;
+	height: 33px;
+	background: #0e78e7;
+	border: 1px solid #045bb2;
+	border-top-right-radius: 4px;
+	border-bottom-right-radius: 4px;
+	box-shadow: 0 1px 2px rgba(0,0,0,.05),inset 0 1px 1px rgba(255,255,255,.15);
+	box-sizing: border-box;
+	cursor: pointer;
+	color: white;
+	font-size: 14px;
+}
+
+/*顶部导航条部分*/
+.top-nav{
+	float: left;
+	position: relative;
+	margin-left: 18px;
+}
+
+.top-nav ul li{
+	float: left;
+}
+
+.top-nav ul li a{
+	width: 54px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    display: block;
+    color: #f2f4f5;
+    text-shadow: 0 1px 1px rgba(0,0,0,.12);
+    font-size: 15px;
+	color: #eee;
+}
+
+
+.top-nav ul li a:hover{
+	text-decoration: none;
+}
+
+.top-nav .notice{
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    width: 16px;
+    height: 16px;
+    border-radius: 9px;
+    background-color: #bf1031;
+    color: #fff;
+    line-height: 16px;
+    text-align: center;
+    font-size: 8px;
+    cursor: pointer;
+}
+
+/*顶部导航条右侧*/
+.nav-profile{
+	float: right;
+	width: 120px;
+	height: 45px;
+	margin-left: 20px;
+	line-height: 42px;
+}
+
+.nav-profile a.profile-link{
+	display: block;
+	padding: 0 10px;
+	width: 130px;
+	height: 45px;
+	color: white;
+}
+
+.nav-profile a.profile-link:hover{
+	display: block;
+	background-color: #095fb3;
+}
+
+.nav-profile a.profile-link img{
+	width: 26px;
+	height: 26px;
+	border-radius: 3px;
+	border: 1px solid rgba(0,0,0,.1);
+	margin-right: 8px;
+	position: relative;
+    top: 8px;
+}
+
+.nav-profile ul.nav-dropdown{
+	display: none;
+	position: relative;
+	z-index: 10;
+	border: 1px solid #095fb3;
+    border-bottom: none;
+	border-bottom-left-radius: 3px;
+	border-top-right-radius: 3px;
+}
+
+.nav-profile ul.nav-dropdown li a{
+	display: block;
+	width: 118px;
+	height: 39px;
+	padding: 0 17px;
+	border-bottom: 1px solid #085bac;
+	color: white;
+	background-color: #095fb3;
+}
+
+.nav-profile ul.nav-dropdown li a:hover{
+	background-color: #0267cc;
+}
+
+
+.ask-question{
+    float: right;
+    width: 66px;
+    height: 32px;
+    line-height: 30px;
+    margin-top: 7px;
+    border: 1px solid #045bb2;
+    border-radius: 4px;
+    background: linear-gradient(to bottom,#0e7bef,#0d73da);
+    box-shadow: 0 1px 2px rgba(0,0,0,.05), inset 0 1px 1px rgba(255,255,255,.15);
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+    text-shadow: 0 1px 1px rgba(0,0,0,.12);
+    outline: 0;
+    cursor: pointer;
+}
+
+
+.sprite-search{
+	display: inline-block;
+	background-image: url(../image/sprites.auto.2bb79a7e.png);
+    background-position: -82px 0;
+    width: 15px;
+    height: 15px;
+    vertical-align: -2px;
+}
+
+.sprite-nav-profile{
+    display: inline-block;
+    background-image: url(../image/sprites-1.9.2.4c54885a.png);
+    background-position: -6px -7px;;
+    width: 20px;
+    height: 20px;
+    vertical-align: -7px;
+}
+
+.sprite-nav-letter{
+    display: inline-block;
+    background-image: url(../image/sprites-1.9.2.4c54885a.png);
+    background-position: -6px -34px;
+    width: 20px;
+    height: 20px;
+    vertical-align: -7px;
+}
+.sprite-nav-setting{
+    display: inline-block;
+    background-image: url(../image/sprites-1.9.2.4c54885a.png);
+    background-position: -6px -60px;
+    width: 20px;
+    height: 20px;
+    vertical-align: -7px;
+}
+.sprite-nav-logout{
+    display: inline-block;
+    background-image: url(../image/sprites-1.9.2.4c54885a.png);
+    background-position: -6px -87px;
+    width: 20px;
+    height: 20px;
+    vertical-align: -7px;
+}
+
+
+
+
+
+
+
+
+
+

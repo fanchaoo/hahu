@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fc.mapper.QuestionMapper">
+
+    <insert id="insertQuestion">
+        <selectKey resultType="int" order="AFTER" keyProperty="questionId">
+            select last_insert_id() as questionId
+        </selectKey>
+        insert into question(question_title,question_content,topic_kv_list,create_time,user_id)
+        values(#{questionTitle},#{questionContent},#{topicKvList},#{createTime},#{userId})
+    </insert>
+    
+    <insert id="insertIntoQuestionTopic">
+    	insert into question_topic(question_id,topic_id)
+    	values(#{questionId},#{topicId})
+    </insert>
+    
+    
+    <select id="selectQuestionByQuestionId" resultType="com.fc.model.Question">
+    	select * from question where question_id = #{questionId}
+    </select>
+    
+	<select id="selectQuestionCountByUserId" resultType="int">
+		select count(*) from question where user_id = #{userId}
+	</select>
+	
+	<select id="listQuestionByUserId" resultType="com.fc.model.Question">
+		select question_id,question_title,create_time from question
+		where user_id = #{userId}
+		limit #{offset},#{limit}
+	</select>
+	
+	<select id="listQuestionByPage" resultType="com.fc.model.Question">
+		select question_id,question_title
+		from question
+		limit #{offset},#{limit}
+	</select>
+	
+	<select id="selectQuestionCountByTopicId" resultType="int">
+		select count(*) from question_topic
+		where topic_id = #{topicId}
+	</select>
+    
+    <select id="listQuestionIdByTopicId" resultType="int">
+    	select question_id from question_topic
+    	where topic_id = #{topicId}
+    	order by qt_id desc
+    	limit #{offset},#{limit}
+    </select>
+    
+    <select id="listQuestionByQuestionId" resultType="com.fc.model.Question">
+    	select question_id,question_title,create_time from question
+		<where>
+			question_id in
+			<foreach collection="list" item="item" index="index" open="("
+				separator="," close=")">
+				#{item}
+			</foreach>
+		</where>
+    </select>
+    
+    <!-- 大烂sql。。。 -->
+    <select id="listRelatedQuestion" resultType="com.fc.model.Question">
+    	select q.question_id,q.question_title,count(*) as answer_count from answer a join
+		(select q.question_id,q.question_title from question_topic qt join question q on qt.question_id = q.question_id 
+		    	where qt.topic_id = (select topic_id from question_topic where question_id = 2 limit 0,1)
+		    	and q.question_id != 2
+		limit 0,5) q on q.question_id = a.question_id
+
+    </select>
+    
+    <select id="selectQuestionByAnswerId" resultType="com.fc.model.Question">
+    	select question_id,question_title,user_id from question
+    	where question_id = (select question_id from answer where answer_id = #{answerId})
+    </select>
+</mapper>
+
+
+
+
+
+
+
+
+

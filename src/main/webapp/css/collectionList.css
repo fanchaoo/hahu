@@ -1,0 +1,260 @@
+﻿
+/*主体部分*/
+.main{
+	width: 960px;
+	margin: 0 auto;
+}
+
+/*内容部分*/
+.content{
+	float: left;
+	width: 632px;
+}
+
+.content div.divide{
+    border-bottom: 1px solid #ccc;
+}
+
+.content ul.head{
+    position: relative;
+    height: 28px;
+}
+
+.content ul.head li{
+    position: absolute;
+    width: 100px;
+    height: 17px;
+    padding: 5px 15px;
+    font-size: 13px;
+    color: #259;
+    cursor: pointer;
+}
+
+.content ul.head li:nth-child(1){
+    top: 0;
+    left: 0;
+}
+
+.content ul.head li:nth-child(2){
+    top: 0;
+    left: 140px;
+}
+
+.content ul.head li.active{
+    color: #666;
+    background-color: white;
+    border: 1px #ccc solid;
+    border-bottom: none;
+    height: 18px;
+}
+
+.content li .title{
+    padding: 15px 5px 10px;
+    border-bottom: 1px solid #eee;
+    line-height: 1.7; 
+    font-size: 13px;
+    color: #666;
+}
+
+.content li div.item{
+    padding: 10px 5px;
+    border-bottom: 1px solid #eee;
+    line-height: 1.7; 
+}
+
+
+
+.content li div.item a,
+.content li div.item span{
+    margin-right: 5px;
+    color: #999;
+    font-size: 13px;   
+}
+
+.content li div.item a:hover{
+    color: #698ebf;
+    text-decoration: underline;
+}
+
+.content li div.item h4 a{
+    font-weight: bold;
+    color: #259;
+    font-size: 14px;   
+}
+
+/*更多按钮*/
+.content .more-answer{
+    padding-bottom: 30px;
+    border-bottom: 1px solid #eee;
+}
+
+.content .more-answer a{
+    display: block;
+    font-size: 13px;
+    margin: 20px 0;
+    padding: 5px 1px;
+    color: #666;
+    text-shadow: 0 1px 0 #fff;
+    background: linear-gradient(to bottom,#f8f8f9,#e6e6e8);
+    border: 1px solid #bbb;
+    box-shadow: 0 1px 0 #fff inset, 0 1px 0 rgba(0,0,0,.1);
+    line-height: 1.7;
+    text-decoration: none!important;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*右侧工具栏部分*/
+.sidebar{
+	float: right;
+	width: 270px;
+	height: 600px;
+	margin-left: 58px;
+	/*background-color: yellow;*/
+}
+
+/*工具类顶部部分*/
+.sidebar-top{
+	padding-bottom: 16px;
+	border-bottom: 1px solid #eee;
+}
+
+.sidebar-top ul li{
+	width: 270px;
+	height: 28px;
+	padding-left: 10px;
+	margin-bottom: 5px;
+}
+
+.sidebar-top ul li a{
+	display: block;
+	width: 270px;
+	height: 28px;
+	line-height: 28px;
+	color: #666;
+	font-size: 13px;
+}
+
+.sidebar-top ul li a:hover{
+    color: #259;
+    background: #eff6fa;
+    border-radius: 3px;
+}
+
+.sidebar-item{
+	font-size: 13px;
+	padding: 16px 0 16px 12px;
+	border-bottom: 1px solid #eee;
+}
+
+.sprite-collection{
+	display: inline-block;
+	background-image: url(../image/sprites-1.9.2.4c54885a.png);
+	background-position: -167px -4px;
+	margin-right: 2px;
+    width: 14px;
+    height: 14px;
+    vertical-align: -2px;
+}
+
+.sprite-question{
+	display: inline-block;
+	background-image: url(../image/sprites-1.9.2.4c54885a.png);
+	background-position: -183px -4px;
+	margin-right: 2px;
+    width: 14px;
+    height: 14px;
+    vertical-align: -2px;
+}
+
+.sprite-invite{
+	display: inline-block;
+	background-image: url(../image/sprites-1.9.2.4c54885a.png);
+	background-position: -200px -4px;
+	margin-right: 2px;
+    width: 14px;
+    height: 14px;
+    vertical-align: -2px;
+}
+
+/*工具栏专栏部分*/
+.sidebar-zhuanlan{
+	padding: 15px 0 15px 10px;
+}
+
+.sidebar-zhuanlan h2{
+	margin: 16px 0 0;
+	font-weight: 700;
+    font-size: 14px;
+    color: #000;
+}
+
+.sidebar-zhuanlan ul li{
+	padding: 10px 0 10px;
+	border-bottom: 1px solid #eee;
+    line-height: 34px;
+    color: #666;
+    font-size: 13px;
+}
+
+.sidebar-zhuanlan ul li a{
+	display: block;
+    line-height: 34px;
+    color: #666;
+}
+
+.sidebar-zhuanlan ul li a:hover{
+    color: #259;
+    background: #eff6fa;
+    border-radius: 3px;
+}
+
+.sprite-zhuanlan{
+	display: inline-block;
+	background-image: url(../image/sprites.auto.a740548f.png);
+	margin-right: 5px;
+	background-position: 0 0;
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
+}
+
+/*footer部分*/
+
+.footer{
+	padding-top: 10px;
+	padding-left: 10px;
+}
+
+.footer, .footer a{
+	/*display: inline-block;*/
+	line-height: 24px;
+	color: #666;
+	font-size: 13px;
+}
+
+.footer a:hover{
+	text-decoration: underline;
+}
+
+
+
+

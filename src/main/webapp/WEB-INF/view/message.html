@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>首页</title>
+
+	<link rel="stylesheet" type="text/css" href="${base}/css/wangEditor.css">
+	<link rel="stylesheet" type="text/css" href="${base}/css/base.css">
+	<link rel="stylesheet" type="text/css" href="${base}/css/nav.css">
+	<link rel="stylesheet" type="text/css" href="${base}/css/mask.css">
+	<link rel="stylesheet" type="text/css" href="${base}/css/message.css">
+</head>
+<body>
+	<#include "nav.html" parse=true encoding="utf-8"/>
+	<div class="main">
+		<div class="content">
+
+			<h3>全部消息</h3>
+			<ul>
+				<#list map?keys as key>
+				<li>
+					<h4>${key}</h4>
+					<div class="messages">
+						<#list map[key] as message>
+						<#if message.type==1>
+                        <ul class="message-follow">
+                            <li class="sprite-message-follow"></li>
+                            <li><a href="#">${message.fromUserName}</a> 关注了你</li>
+                        </ul>
+                        <#elseif message.type==2>
+                        <ul class="message-like">
+                            <li class="sprite-message-like"></li>
+                            <li>获得 1 次赞同： <a href="#">${message.questionTitle}</a> 来自 <a href="#">${message.fromUserName}</a></li>
+                        </ul>
+                        <#elseif message.type==3>
+                        <ul class="message-comment">
+                            <li class="sprite-message-comment"></li>
+                            <li><a href="">${message.fromUserName}</a> 评论了你在 <a href="">${message.questionTitle}</a> 问题下的回答</li>
+                        </ul>
+                        <#else>
+                        <ul class="message-answer">
+                            <li class="sprite-message-answer"></li>
+                            <li><a href="">${message.fromUserName}</a> 回答了 <a href="">${message.questionTitle}</a></li>
+                        </ul>
+                        </#if>
+                        </#list>
+                    </div>
+				</li>
+				</#list>
+			</ul>
+		</div>
+		<div class="sidebar">
+			<div class="sidebar-top">
+				<ul>
+					<li><a href="${base}/collections"><i class="sprite-collection"></i>我的收藏</a></li>
+					<li><a class="profile-question-link" href=""><i class="sprite-invite"></i>我的提问</a></li>
+					<li><a class="profile-link" href=""><i class="sprite-invite"></i>我回答的问题</a></li>
+					<li><a class="profile-follow-question-link" href=""><i class="sprite-question"></i>我关注的问题</a></li>
+				</ul>
+			</div>
+
+			<div class="footer">
+				<a href="#">建议反馈</a>
+				<span> • </span>
+				<a href="#">联系我们</a>
+				<div></div>
+				<span>@ 2017 蛤乎</span>
+			</div>
+		</div>
+	</div>
+	<#include "mask.html"/>
+
+<script type="text/javascript" src="${base}/js/wangEditor.js"></script>
+<script type="text/javascript" src="${base}/js/nav.js"></script>
+<script type="text/javascript" src="${base}/js/mask.js"></script>
+<script type="text/javascript" src="${base}/js/message.js"></script>
+
+</body>
+</html>
+
