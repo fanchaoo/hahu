@@ -208,8 +208,9 @@ public class QuestionService {
 
 		Jedis jedis = jedisPool.getResource();
 
-		Set<String> idSet = jedis.zrange(RedisKey.QUESTION_SCANED_COUNT, offset, limit);
+		Set<String> idSet = jedis.zrange(RedisKey.QUESTION_SCANED_COUNT, offset, offset + limit - 1);
 		List<Integer> idList = MyUtil.StringSetToIntegerList(idSet);
+		System.out.println(idList);
 		List<Question> questionList = new ArrayList<Question>();
 		if (idList.size() > 0) {
 			questionList = questionMapper.listQuestionByQuestionId(idList);

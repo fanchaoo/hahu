@@ -35,7 +35,7 @@ public class QuestionController {
 	@RequestMapping("/ask")
 	@ResponseBody
 	public Response ask(Question question, String topicNameString, HttpServletRequest request) {
-		System.out.println(question.getQuestionContent().equals(""));
+
 		Integer userId = userService.getUserIdFromRedis(request);
 		Integer questionId = questionService.ask(question, topicNameString, userId);
 		return new Response(0, "", questionId);

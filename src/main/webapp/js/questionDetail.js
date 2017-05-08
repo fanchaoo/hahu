@@ -274,6 +274,7 @@ editor.config.menus = [
          success:function(response){
              if(response.state==0){
              	window.location.href=basepath + "question/" + questionId + "#answer-"+response.data;
+             	location.reload();
              }else{
              	alert("出现错误了~");
              }
