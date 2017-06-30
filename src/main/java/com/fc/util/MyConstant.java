@@ -11,7 +11,7 @@ public class MyConstant {
 	public static final String MAIL_FROM = "ceshihahu@yeah.net";
 
 	// 域名
-	public static final String DOMAIN_NAME = "http://localhost:8080/hahu/";
-	// public static final String DOMAIN_NAME = "http://120.25.236.249/";
+	// public static final String DOMAIN_NAME = "http://localhost:8080/hahu/";
+	public static final String DOMAIN_NAME = "http://naivee.me/";
 
 }

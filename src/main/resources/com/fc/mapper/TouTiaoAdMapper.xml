@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fc.mapper.TouTiaoAdMapper">
+
+	<insert id="insertClickRecord">
+		insert into toutiao_ad_click_record(adid, cid, mac, os, timestamp, convert_id, callback_url, idfa, imei, androidid, ctime)
+		values(#{adid}, #{cid}, #{mac}, #{os}, #{timestamp}, #{convertId}, #{callbackUrl}, #{idfa}, #{imei}, #{androidid}, now())
+	</insert>
+	
+	<select id="selectCountByIdfa" resultType="int">
+		select count(*) from toutiao_ad_click_record
+		where os = 1 and idfa = #{idfa}
+	</select>
+	
+	<select id="selectCountByImei" resultType="int">
+		select count(*) from toutiao_ad_click_record
+		where os = 0 and imei = #{imei}
+	</select>
+</mapper>
