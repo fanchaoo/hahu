@@ -1,0 +1,252 @@
+﻿1、用户：user(mongo)
+
+
+//注册后自带属性
+
+email			邮箱
+password		密码
+avtive_state	激活状态
+activate_code	激活码
+
+//用户本身可以编辑的属性
+
+username		用户名
+gender			性别
+simple_desc		一句话介绍
+avatar_url		头像路径
+position		居住地
+industry		所在行业
+career			职业经历
+education		教育经历
+full_desc		个人简介
+
+
+//其它衍生属性
+
+like_count				获得点赞数
+collect_count			获得收藏数
+
+following_count			关注了多少人
+follower_count			关注者多少人
+
+scan_count				个人主页浏览次数
+
+create_time		注册时间
+
+
+2、话题：topic(mysql)
+
+topic_id			话题id
+topic_name			话题名称(unique)
+topic_desc			话题描述
+topic_image			话题图片url
+
+
+
+3、问题：question(mysql)
+
+title			问题标题
+content			问题内容
+topic_id_list
+followed_count		问题被关注者
+scaned_count		问题浏览次数
+create_time		问题被提问时间
+
+user_id			提问用户
+
+4、问题评论：question_comment(mysql)
+
+comment_id			评论id
+content				评论内容
+at_user_id			回复谁
+like_count			被点赞次数
+create_time			评论时间
+
+question_id			评论在哪个问题下
+user_id				评论用户
+
+
+5、回答：answer(mysql)
+
+answer_id			评论id
+content				回答内容
+liked_count			点赞数
+create_time			回答时间
+
+question_id			回答的问题id
+user_id				回答用户id
+
+6、回答评论：answer_comment(mysql)
+
+comment_id			评论id
+content				评论内容
+at_user_id			回复谁
+like_count			被点赞次数
+create_time			评论时间
+
+answer_id			评论在哪个回答下
+user_id				评论用户
+
+
+7、收藏夹：collection(mysql)
+
+collection_id			收藏夹id
+collection_name			收藏夹名称
+create_time				创建时间
+update_time				更新时间
+
+user_id		收藏夹用户id
+
+
+8、消息：message(mongo)
+
+message_id					消息id
+user_id						所属用户id
+message_type				消息类型(1、被关注;2、被点赞;3、评论相关;4、回答问题)
+son_type					子类型
+
+from_user_id				哪个用户的操作产生的消息
+
+question_id					问题id
+
+answer_id					回答id
+
+comment_id					评论id
+
+
+===============================================================================================================
+
+
+一、几种行为：
+
+1、基础行为
+
+提问、回答
+
+2、收藏
+
+收藏回答
+
+3、关注
+
+关注人、关注话题、关注问题、关注收藏夹
+
+4、点赞
+
+点赞回答、点赞评论(问题下、回答下)
+
+
+
+二、Feed流推送内容：
+
+关注的人提问了某问题
+关注的人回答了某问题
+
+关注的人关注了某问题
+
+关注的人点赞了某回答
+
+
+
+三、消息种类：
+
+
+
+1、被关注消息
+
+XXX 关注了你									1.1---被关注(用户id)
+
+2、被点赞消息
+
+获得 1 次赞同： XXX 来自 XXX					2.1---赞回答(用户id，问题id，回答id)
+
+XXX 赞了你在 XXX 下的评论						2.2---赞问题下的评论(用户id，问题id，问题评论id)
+
+XXX 赞了你在 XX 中 XXX 的回答下的评论			2.3---赞回答下的评论(用户id，问题id，回答id，回答评论id)
+
+
+3、评论消息
+
+XX 评论了你回答 XXX								3.1---评论回答(用户id，问题id，回答id)
+XX 回复了你在 XXX 问题下的评论					3.2---回复问题下的评论(用户id，问题id，问题评论id)
+XX 回复了你在 XXX 问题回答下的评论				3.3---回复回答下的评论(用户id，问题id，回答id，回答评论id)
+
+4、回答问题消息
+
+XXX 回答了 XXX									4.1---提问的问题有新回答(用户id，问题id，回答id)
+
+
+
+四、Redis设计
+
+1、收藏
+
+collection_id:collect --> set(answer_id)
+
+例如，
+123:collect --> set(1,2,3,4)。
+表示id为123的收藏夹，收藏了id在(1,2,3,4)中的回答。
+
+
+2、关注
+
+user_id:follow_people --> set(user_id)
+user_id:followed_people --> set(user_id)
+
+例如，
+123:follow_people --> set(1,2,3,4)。
+表示id为123的用户，关注了id在(1,2,3,4)中的用户。
+
+123:followed_people --> set(1,2,3,4)。
+表示id为123的用户，被id在(1,2,3,4)中的用户关注。
+
+user_id:follow_topic --> set(topic_id)；某用户关注了哪些话题。
+topic_id:followed_topic --> set(user_id)；某话题被哪些用户关注。
+
+user_id:follow_question --> set(question_id)；某用户关注了哪些问题。
+question_id:followed_question --> set(user_id)；某问题被哪些用户关注。
+
+user_id:follow_collection --> set(collection_id)；某用户关注了哪些收藏夹。
+collection_id:followed_collectoin --> set(user_id)；某收藏夹被哪些用户关注。
+
+
+3、点赞
+
+answer_id:liked_answer --> set(user_id)；某回答被哪些用户点赞。
+question_comment_id:liked_question_comment --> set(user_id)；某问题下的评论被哪些用户点赞。
+answer_comment_id:liked_answer_comment --> set(user_id)；某回答下的评论被哪些用户点赞。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
