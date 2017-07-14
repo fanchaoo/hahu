@@ -1,1 +1,6 @@
 /target/
+.project
+.tern-project
+.iml
+.idea
+.settings
