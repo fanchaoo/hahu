@@ -38,4 +38,10 @@ public interface UserMapper {
 	void updateAvatarUrl(@Param("userId") Integer userId, @Param("avatarUrl") String avatarUrl);
 
 	String selectUsernameByUserId(@Param("userId") Integer userId);
+
+	User selectUserInfoByWeiboUserId(String weiboUserId);
+
+	int insertWeiboUser(User user);
+
+	String getWeiboUserId(Integer userId);
 }

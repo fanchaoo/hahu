@@ -9,6 +9,15 @@
         insert into user(email,password,activation_code,join_time,username,avatar_url)
         values(#{email},#{password},#{activationCode},#{joinTime},#{username},#{avatarUrl})
     </insert>
+    
+    
+    <insert id="insertWeiboUser">
+    	<selectKey resultType="int" order="AFTER" keyProperty="userId">
+            select last_insert_id() as userId
+        </selectKey>
+        insert into user(username, avatar_url, weibo_user_id)
+        values(#{username}, #{avatarUrl}, #{weiboUserId})
+    </insert>
 	
 	<select id="selectEmailCount" resultType="int">
         select count(*) from user where email = #{email}
@@ -20,6 +29,10 @@
     
     <select id="selectUserInfoByUserId" resultType="com.fc.model.User">
     	select user_id,username,avatar_url,simple_desc from user where user_id = #{userId}
+    </select>
+    
+    <select id="selectUserInfoByWeiboUserId" resultType="com.fc.model.User">
+    	select user_id,username,avatar_url from user where weibo_user_id = #{weiboUserId}
     </select>
 
     <select id="selectActivationStateByUserId" resultType="int">
@@ -79,6 +92,11 @@
     
     <select id="selectUsernameByUserId" resultType="string">
     	select username from user
+    	where user_id = #{userId}
+    </select>
+    
+    <select id="getWeiboUserId" resultType="string">
+    	select weibo_user_id from user
     	where user_id = #{userId}
     </select>
 </mapper>

@@ -2,8 +2,10 @@
 <html>
 <head>
 	<title>注册与登录</title>
+	<meta property="wb:webmaster" content="b8c4af896fdc378c" />
 	<link rel="stylesheet" type="text/css" href="${base}/css/base.css">
 	<link rel="stylesheet" type="text/css" href="${base}/css/login.css">
+	<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=2885420509" type="text/javascript" charset="utf-8"></script>
 	
 	<style>
 		form{
@@ -55,8 +57,8 @@
 	<base id="baseUrl" href="${base}+"/"/>
 	<div class="wrap" style="">
 		<header>
-			<h1>问答</h1>
-			<p>与世界分享你的知识、经验和见解</p>
+			<h1>蛤乎</h1>
+			<p>与世界分享你刚编的的知识、经验和见解</p>
 		</header>
 
 		<section>
@@ -90,6 +92,8 @@
 						<span id="login-password-error"></span>
 					</div>
 					<button id="loginButton" type="button">登录</button>
+					<!-- <div id="wb_connect_btn">weiboLogin</div> -->
+					<a href="https://api.weibo.com/oauth2/authorize?client_id=968565512&response_type=code&redirect_uri=http://naivee.me/weiboLogin">微博登录</a>
 				</form>
 			</div>
 		</section>
@@ -100,6 +104,23 @@
 <script type="text/javascript" src="${base}/js/login.js"></script>
 <script>
 	$(function(){
+
+		//微博登录
+/* 		WB2.anyWhere(function (W) {
+		    W.widget.connectButton({
+		        id: "wb_connect_btn",
+		        type: '3,2',
+		        callback: {
+		            login: function (o) { //登录后的回调函数
+		                alert("login: " + o.screen_name)
+		            },
+		            logout: function () { //退出后的回调函数
+		                alert('logout');
+		            }
+		        }
+		    });
+		}); */
+
 	
 		/* hash判断 */
 		var urlHash = window.location.hash;

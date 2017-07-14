@@ -1,5 +1,6 @@
 package com.fc.controller;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -67,6 +68,12 @@ public class UserController {
 		} else {
 			return new Response(1, map.get("error").toString());
 		}
+	}
+	
+	@RequestMapping("/weiboLogin")
+	public String weiboLogin(String code,HttpServletResponse response) throws IOException{
+		userService.weiboLogin(code, response);
+		return "index";
 	}
 
 	@RequestMapping("/activate")
@@ -209,5 +216,15 @@ public class UserController {
 		userService.unfollowUser(localUserId, userId);
 		return new Response(0, "");
 	}
+	
+	@RequestMapping("/getWeiboUserInfo")
+	@ResponseBody
+	public Response getWeiboUserInfo(HttpServletRequest request) {
+		Integer localUserId = userService.getUserIdFromRedis(request);
+		Response response = userService.getWeiboUserInfo(localUserId);
+		return response;
+	}
+	
+	
 
 }

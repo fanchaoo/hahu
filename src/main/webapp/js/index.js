@@ -4,6 +4,8 @@ window.page = 1;
 
 $("#userAvatar").attr("src",localStorage.avatarUrl);
 
+getWeiboUserInfo();
+
 //feed流中，移入移出的处理
 var feedMeta = $(".feed-meta");
 feedMeta.mouseover(function(){
@@ -49,7 +51,24 @@ function getIndexDetail(page){
 }
 
 
-
+function getWeiboUserInfo(){
+	var form = new FormData();
+	$.ajax({
+	    url:basepath + "getWeiboUserInfo",
+	    type:"post",
+	    data:form,
+	    processData:false,
+	    contentType:false,
+	    success:function(response){
+	        if(response.state==0){
+	        	console.log(response.data);
+	        	localStorage.setItem("userId", response.data.userId);
+	        	localStorage.setItem("username", response.data.username);
+	        	localStorage.setItem("avatarUrl", response.data.avatarUrl);
+	        }
+	    }
+	});
+}
 
 
 

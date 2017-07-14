@@ -28,6 +28,8 @@ public class User {
 	private Integer scanedCount;
 	private Long joinTime;
 
+	private String weiboUserId;
+
 	public Integer getUserId() {
 		return userId;
 	}
@@ -212,11 +214,12 @@ public class User {
 		this.followCollectionCount = followCollectionCount;
 	}
 
-	@Override
-	public String toString() {
-		return "User [userId=" + userId + ", email=" + email + ", password=" + password + ", activationState=" + activationState + ", activationCode=" + activationCode + ", username=" + username + ", gender=" + gender + ", simpleDesc=" + simpleDesc + ", avatarUrl=" + avatarUrl + ", position="
-				+ position + ", industry=" + industry + ", career=" + career + ", education=" + education + ", fullDesc=" + fullDesc + ", likedCount=" + likedCount + ", collectedCount=" + collectedCount + ", followCount=" + followCount + ", followedCount=" + followedCount + ", scanedCount="
-				+ scanedCount + ", joinTime=" + joinTime + "]";
+	public String getWeiboUserId() {
+		return weiboUserId;
+	}
+
+	public void setWeiboUserId(String weiboUserId) {
+		this.weiboUserId = weiboUserId;
 	}
 
 }

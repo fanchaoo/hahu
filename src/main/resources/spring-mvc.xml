@@ -80,6 +80,7 @@
 						<value>/login</value>
 						<value>/activate</value>
 						<value>/logout</value>
+						<value>/weiboLogin</value>
 					</list>
 				</property>
 			</bean>

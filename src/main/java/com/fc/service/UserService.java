@@ -1,5 +1,6 @@
 package com.fc.service;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -19,9 +20,8 @@ import org.springframework.core.task.TaskExecutor;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
-import redis.clients.jedis.Jedis;
-import redis.clients.jedis.JedisPool;
-
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.fc.async.MailTask;
 import com.fc.mapper.AnswerMapper;
 import com.fc.mapper.CommentMapper;
@@ -30,12 +30,21 @@ import com.fc.mapper.UserMapper;
 import com.fc.model.Answer;
 import com.fc.model.Message;
 import com.fc.model.User;
+import com.fc.util.HttpUtils;
 import com.fc.util.MyConstant;
 import com.fc.util.MyUtil;
 import com.fc.util.RedisKey;
+import com.fc.util.Response;
+
+import redis.clients.jedis.Jedis;
+import redis.clients.jedis.JedisPool;
 
 @Service
 public class UserService {
+
+	private static final String WEIBO_APP_KEY = "968565512";
+	private static final String WEIBO_APP_SECRET = "heiheihei";
+	private static final String REDIRECT_URL = "http://naivee.me/weiboLogin";
 
 	@Autowired
 	private UserMapper userMapper;
@@ -151,6 +160,59 @@ public class UserService {
 		map.put("userInfo", user);
 
 		return map;
+	}
+
+	/* 登录 */
+	public void weiboLogin(String code, HttpServletResponse response) throws IOException {
+
+		Map<String, String> map = new HashMap<>();
+		map.put("client_id", WEIBO_APP_KEY);
+		map.put("client_secret", WEIBO_APP_SECRET);
+		map.put("grant_type", "authorization_code");
+		map.put("code", code);
+		map.put("redirect_uri", REDIRECT_URL);
+
+		String result = HttpUtils.send("https://api.weibo.com/oauth2/access_token", map, "utf8");
+		JSONObject jsonObject = JSON.parseObject(result);
+		String weiboUserId = jsonObject.getString("uid");
+
+		User user = userMapper.selectUserInfoByWeiboUserId(weiboUserId);
+		User temp = user;
+		if (user == null || user.getUserId() == null) {
+			String accessToken = jsonObject.getString("access_token");
+
+			String userStr = HttpUtils
+					.get("https://api.weibo.com/2/users/show.json?access_token=" + accessToken + "&uid=" + weiboUserId);
+			JSONObject userInfo = JSON.parseObject(userStr);
+			
+			if(userInfo.get("error_code")!=null){
+				throw new RuntimeException("审核还未通过~");
+			}
+			
+			String username = userInfo.getString("name");
+			String avatar = userInfo.getString("profile_image_url");
+
+			temp = new User();
+			temp.setUsername(username);
+			temp.setAvatarUrl(avatar);
+			temp.setWeiboUserId(weiboUserId);
+
+			userMapper.insertWeiboUser(temp);
+
+		}
+
+		// 设置登录cookie
+		String loginToken = MyUtil.createRandomCode();
+		Cookie cookie = new Cookie("loginToken", loginToken);
+		cookie.setPath("/");
+		cookie.setMaxAge(60 * 60 * 24 * 30);
+		response.addCookie(cookie);
+
+		// 将token:userId存入redis，并设置过期时间
+		Jedis jedis = jedisPool.getResource();
+		jedis.set(loginToken, temp.getUserId().toString(), "NX", "EX", 60 * 60 * 24 * 30);
+		jedisPool.returnResource(jedis);
+
 	}
 
 	/* 激活帐号 */
@@ -356,5 +418,17 @@ public class UserService {
 	public void updateAvatarUrl(Integer userId, String avatarUrl) {
 		userMapper.updateAvatarUrl(userId, avatarUrl);
 
+	}
+
+	public Response getWeiboUserInfo(Integer localUserId) {
+		String weiboUserId = userMapper.getWeiboUserId(localUserId);
+		if (weiboUserId == null || weiboUserId.equals("")) {
+			return new Response(-1);
+		}
+		User userInfo = userMapper.selectUserInfoByWeiboUserId(weiboUserId);
+		Map<String, Object> map = new HashMap<>();
+		map.put("userInfo", userInfo);
+
+		return new Response(0, "", userInfo);
 	}
 }
