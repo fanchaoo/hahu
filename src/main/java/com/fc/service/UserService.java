@@ -43,7 +43,7 @@ import redis.clients.jedis.JedisPool;
 public class UserService {
 
 	private static final String WEIBO_APP_KEY = "968565512";
-	private static final String WEIBO_APP_SECRET = "gugugu";
+	private static final String WEIBO_APP_SECRET = "2bba0b19d588f1b65a4b4e348dcd45b6";
 	private static final String REDIRECT_URL = "http://naivee.me/weiboLogin";
 
 	@Autowired
