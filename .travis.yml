@@ -32,4 +32,4 @@ deploy:
   file: /home/travis/.m2/repository/com/fc/hahu/1.3/hahu-1.3.war
   skip_cleanup: true
   on:
-    branch: learn_github_releases
+    branch: master
