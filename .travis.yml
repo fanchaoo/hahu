@@ -1,5 +1,4 @@
 #test ci
-#watch changes and build
 branches:
   only:
     - master
@@ -24,8 +23,8 @@ after_success:
 
 before_deploy:
   # Set up git user name and tag this commit
-  - git config --local user.name “xxxx”
-  - git config --local user.email “xxxx”
+  - git config --local user.name “wo1”
+  - git config --local user.email “274077170@qq.com”
   - git tag “$(date +’%Y%m%d%H%M%S’)-$(git log --format=%h -1)”
 deploy:
   provider: release
