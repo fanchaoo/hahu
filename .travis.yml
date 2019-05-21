@@ -27,7 +27,7 @@ before_deploy:
   - git config --local user.email “274077170@qq.com”
   - git tag “$(date +’%Y%m%d%H%M%S’)-$(git log --format=%h -1)”
 deploy:
-  provider: release
+  provider: releases
   api_key: $github_oauth_token
   file: /home/travis/.m2/repository/com/fc/hahu/1.3/hahu-1.3.war
   skip_cleanup: true
