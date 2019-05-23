@@ -4,3 +4,51 @@
 .iml
 .idea
 .settings
+
+*.class
+target
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+.studio
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+#idea ftl
+.idea
+*.iml
+overlays/
+*.log
+logs
+*.epoch
+*.lck
+data
+
+
+# OS generated ftl #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+</span>
+/bin/
+
+#eclipse file
+.classpath
+.gradle
+.project
+.settings
+/build/*
+src/main/webapp/WEB-INF/classes/
+bin
+.rules
