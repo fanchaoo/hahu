@@ -9,5 +9,8 @@
         <module name="hahu" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="hahu" target="1.7" />
+    </bytecodeTargetLevel>
   </component>
 </project>
