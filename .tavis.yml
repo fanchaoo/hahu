@@ -1,0 +1,35 @@
+# test ci
+branches:
+  only:
+  - master
+  - featureA
+
+language: java
+jdk:
+  - oraclejdk8
+
+env:
+  CATALINA_BASE=/home/travis
+
+sudo: false
+install: true
+
+script:
+- mvn install
+- mvn cobertura:cobertura
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
+
+before_deploy:
+  - git config --local user.name "BetaGrey"
+  - git config --local user.email "pku_gewei@163.com"
+  - git tag "$(date +''%Y%m%d%H%M%S)-$(git log --format=%h -l)"
+
+deploy:
+  provider: releases
+  api_key: $github_oauth_token
+  file: /home/travis/.m2/repository/com/fc/hahu/1.3/hahu-1.3.war
+  skip_cleanup: true
+  on:
+    branch: master
